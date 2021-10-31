@@ -1,0 +1,9 @@
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+
+xset r rate 300 50 &
+setxkbmap -option caps:super -layout es &
+killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape' &
+xwallpaper --zoom ~/.local/share/fondo &
+unclutter &
+setxkbmap -layout es &
+exec dwm

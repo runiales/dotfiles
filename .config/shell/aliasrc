@@ -1,0 +1,59 @@
+#!/bin/sh
+
+# Use neovim for vim if present.
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+
+# Verbosity and settings that you pretty much just always are going to want.
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
+	mkd="mkdir -pv" \
+	yt="youtube-dl --add-metadata -i" \
+	yta="yt -x -f bestaudio/best" \
+	ffmpeg="ffmpeg -hide_banner"
+
+# Colorize commands when possible.
+alias \
+	ls="ls -hN --color=auto --group-directories-first" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ccat="highlight --out-format=ansi"
+
+# These common commands are just too long! Abbreviate them.
+alias \
+	ka="killall" \
+	g="git" \
+	trem="transmission-remote" \
+	YT="youtube-viewer" \
+	sdn="sudo shutdown -h now" \
+	lox="pkill -15 Xorg" \
+	f="$FILE" \
+	e="$EDITOR" \
+	v="$EDITOR" \
+	p="sudo pacman" \
+	xi="sudo xbps-install" \
+	xr="sudo xbps-remove -R" \
+	xq="xbps-query" \
+	z="zathura"
+
+alias \
+	magit="nvim -c MagitOnly" \
+	vw="nvim $HOME/Documentos/vimwiki/index.md" \
+	dia="nvim $HOME/Documentos/vimwiki/diary/$(date "+%Y-%m-%d" | sed -e "s/$/.md/")" \
+	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc" \
+	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
+	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
+	yta='youtube-dl -x --audio-format mp3 -f bestaudio -o "%(title)s.%(ext)s" --add-metadata'\
+	Dc="rsync -aP --exclude={'cejbse1v.default-release/storage','cejbse1v.default-release/datareporting'} ~/.mozilla ~/.bashrc ~/.xprofile ~/.xinitrc ~/.zprofile ~/.zshrc ~/.jackdrc ~/.local/src ~/.local/bin ~/.local/share/mail ~/.local/share/password-store ~/.wyrdrc ~/Documentos ~/Imágenes ~/Música --exclude={'discord','Rambox','spotify','unity3d'}~/.config ~/pg /mnt/Disco/Copias\ de\ seguridad/"\
+	Js="ssh root@78.30.56.121"\
+	Jc="rsync -aP --exclude={'cejbse1v.default-release/storage','cejbse1v.default-release/datareporting'} ~/.mozilla ~/.bashrc ~/.xprofile ~/.xinitrc ~/.zprofile ~/.zshrc ~/.jackdrc ~/.local/src ~/.local/bin ~/.local/share/mail ~/.local/share/password-store ~/.wyrdrc ~/Documentos ~/Imágenes ~/Música --exclude={'discord','Rambox','spotify','unity3d'}~/.config ~/pg root@78.30.56.121:/home/cipri/cs/"\
+	Jp="rsync -aP ~/pg/ root@78.30.56.121:/data/www/"\
+	Jcs="ssh root@192.168.1.140"\
+	Jcc="rsync -aP --exclude={'cejbse1v.default-release/storage','cejbse1v.default-release/datareporting'} ~/.mozilla ~/.bashrc ~/.xprofile ~/.xinitrc ~/.zprofile ~/.zshrc ~/.jackdrc ~/.local/src ~/.local/bin ~/.local/share/mail ~/.local/share/password-store ~/.wyrdrc ~/Documentos ~/Imágenes ~/Música --exclude={'discord','Rambox','spotify','unity3d'}~/.config ~/pg root@192.168.1.140:/home/cipri/cs/"\
+	Jpc="rsync -aP ~/pg/ root@192.168.1.140:/data/www/"\
+	bib="nvim $BIB"\
+	wpj='wol 00:26:22:f0:24:9b'\
+	tfm='cd /home/runiales/Documentos/Facultad/Máster/Segundo_Semestre/TFM && nvim trabajo.tex'\
+	pfm='cd /home/runiales/Documentos/Facultad/Máster/Segundo_Semestre/TFM/presentación && nvim b.tex'\
+	lo='pkill -15 Xorg'

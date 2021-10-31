@@ -1,0 +1,1 @@
+cat ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | cut -d'	' -f2

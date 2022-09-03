@@ -1,0 +1,7 @@
+#!/bin/sh
+
+potatofile="${XDG_DATA_HOME:-$HOME/.local/share}/pomodoro"
+
+pkill potato && echo "" > $potatofile || potato -s > $potatofile && echo "🍅$(tail -1 ${XDG_DATA_HOME:-$HOME/.local/share}/pomodoro)"
+
+pkill -RTMIN+28 "${STATUSBAR:-dwmblocks}"

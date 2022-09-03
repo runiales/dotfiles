@@ -1,0 +1,9 @@
+#!/bin/sh
+
+[ $(dunstctl is-paused) = "true" ] && echo 🦧 || echo ""
+
+# dunstctl set-paused toggle
+
+# [ $(dunstctl is-paused) = "true" ] && echo 🦧 > /tmp/nonoti || echo "" > /tmp/nonoti
+
+# pkill -RTMIN+32 "${STATUSBAR:-dwmblocks}"

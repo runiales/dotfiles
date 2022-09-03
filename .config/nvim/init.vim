@@ -21,6 +21,11 @@ call plug#end()
 
 set title
 set bg=light
+hi clear SpellBad
+hi SpellBad cterm=underline ctermfg=red
+" Set style for gVim
+hi SpellBad gui=undercurl
+
 set go=a
 set mouse=a
 set nohlsearch
@@ -29,7 +34,6 @@ set noshowmode
 set noruler
 set laststatus=0
 set noshowcmd
-set viminfofile=$XDG_CACHE_HOME/vim/viminfo
 
 " Some basics:
 	nnoremap c "_c
@@ -46,6 +50,12 @@ set viminfofile=$XDG_CACHE_HOME/vim/viminfo
 	vnoremap . :normal .<CR>
 " Goyo plugin makes text more readable when writing prose:
 	map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
+	autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
+	autocmd BufRead,BufNewFile /tmp/neomutt* set tw=0
+	" autocmd BufRead,BufNewFile /tmp/neomutt* setlocal fo+=aw
+	autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo | set bg=light
+	autocmd BufRead,BufNewFile /tmp/neomutt* map ZZ :Goyo\|x!<CR>
+	autocmd BufRead,BufNewFile /tmp/neomutt* map ZQ :Goyo\|q!<CR>
 " Spell-check set to <leader>o, 'o' for 'orthography':
 	map <leader>o :setlocal spell! spelllang=es_ES<CR>
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
@@ -106,11 +116,6 @@ set viminfofile=$XDG_CACHE_HOME/vim/viminfo
 " Save file as sudo on files that require root permission
 	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
-" Enable Goyo by default for mutt writing
-	autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
-	autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo | set bg=light
-	autocmd BufRead,BufNewFile /tmp/neomutt* map ZZ :Goyo\|x!<CR>
-	autocmd BufRead,BufNewFile /tmp/neomutt* map ZQ :Goyo\|q!<CR>
 
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
 	autocmd BufWritePre * %s/\s\+$//e
@@ -157,7 +162,7 @@ nnoremap çs :set spell spelllang=es<Enter>
 nnoremap çS :set nospell <Enter>
 nnoremap çp :silent !zathura *.pdf &<enter>
 
-autocmd FileType tex nnoremap çc :w<cr>:!pdflatex -interaction=nonstopmode % >/dev/null<enter>:redraw<enter>
+autocmd FileType tex nnoremap çc :w<cr>:!xelatex -interaction=nonstopmode % <enter>
 autocmd FileType tex nnoremap çb :w<CR>:silent !biber --onlylog *.bcf <enter><c-l>
 autocmd FileType tex nnoremap çw :w<cr>:!texcount %<enter>
 
@@ -176,6 +181,7 @@ augroup END
 
 
 inoremap <F5> <C-R>=strftime("%T")<CR>
+inoremap <F6> <C-R>=strftime("%A %d.%m.%Y")<CR>
 
 "LATEX
 
@@ -186,7 +192,8 @@ autocmd FileType tex inoremap <leader>3s \subsubsubsection{}(<>)<Esc>T{i
 autocmd FileType tex inoremap <leader>it \textit{}(<>)<Esc>T{i
 autocmd FileType tex inoremap <leader>bf \textbf{}(<>)<Esc>T{i
 autocmd FileType tex inoremap <leader>ca \cite{}(<>)<Esc>T{i
-autocmd FileType tex inoremap <leader>ct \textcite[p. ]{(<>)}(<>)<Esc>T.a
+autocmd FileType tex inoremap <leader>ct \textcite[]{.}(<>)<Esc>F.s
+autocmd FileType tex inoremap <leader>cpt \textcite[p. ]{(<>)}(<>)<Esc>T.a
 autocmd FileType tex inoremap <leader>pc \parencite[p. ]{(<>)}(<>)<Esc>T.a
 autocmd FileType tex inoremap <leader>cp \cite[p. ]{(<>)}(<>)<Esc>T.a
 autocmd FileType tex inoremap <leader>fc \footcite[p. ]{(<>)}(<>)<Esc>T.a
@@ -216,6 +223,13 @@ autocmd FileType tex inoremap <leader>t \begin{theorem}<Enter>loco<Enter>\end{th
 autocmd FileType tex inoremap <leader>d \begin{proof}<Enter>loco<Enter>\end{proof}<Enter>(<>)<Esc>?loco<Enter>cw
 autocmd FileType tex inoremap <leader>L \begin{lemma}<Enter>loco<Enter>\end{lemma}<Enter>(<>)<Esc>?loco<Enter>cw
 
+autocmd FileType bib inoremap <leader>a @article{loco,<Enter>author = {(<>)},<Enter>title = {(<>)},<Enter>publisher = {(<>)},<Enter>address = {(<>)},<Enter>year = {(<>)},<Enter>journal = {(<>)},<Enter>volume = {(<>)},<Enter>number = {(<>)},<Enter>month = {(<>)},<Enter>pages = {(<>)},<Enter>doi = {(<>)},<Enter>url = {(<>)},}<Enter>(<>)<Esc>?loco<Enter>cw
+autocmd FileType bib inoremap <leader>b @book{loco,<Enter>author = {(<>)},<Enter>title = {(<>)},<Enter>subtitle = {(<>)},<Enter>publisher = {(<>)},<Enter>address = {(<>)},<Enter>date = {(<>)},<Enter>series = {(<>)},<Enter>origtitle = {(<>)},<Enter>origdate = {(<>)},<Enter>isbn = {(<>)},<Enter>edition = {(<>)},<Enter>volume = {(<>)},<Enter>editor = {(<>)},<Enter>}<Enter>(<>)<Esc>?loco<Enter>cw
+autocmd FileType bib inoremap <leader>m @mvbook{loco,<Enter>author = {(<>)},<Enter>editor = {(<>)},<Enter>title = {(<>)},<Enter>publisher = {(<>)},<Enter>address = {(<>)},<Enter>date = {(<>)},<Enter>series = {(<>)},<Enter>origdate = {(<>)},<Enter>isbn = {(<>)},<Enter>edition = {(<>)},<Enter>volumes = {(<>)},<Enter>}<Enter>(<>)<Esc>?loco<Enter>cw
+autocmd FileType bib inoremap <leader>c @collection{loco,<Enter>editor = {(<>)},<Enter>title = {(<>)},<Enter>publisher = {(<>)},<Enter>address = {(<>)},<Enter>date = {(<>)},<Enter>series = {(<>)},<Enter>isbn = {(<>)},<Enter>edition = {(<>)},<Enter>volumes = {(<>)},<Enter>}<Enter>(<>)<Esc>?loco<Enter>cw
+autocmd FileType bib inoremap <leader>ic @incollection{loco,<Enter>author = {(<>)},<Enter>title = {(<>)},<Enter>date = {(<>)},<Enter>crossref = {(<>)},<Enter>pages = {(<>)},<Enter>translator = {(<>)},<Enter>}<Enter>(<>)<Esc>?loco<Enter>cw
+autocmd FileType bib inoremap <leader>ib @inbook{loco,<Enter>author = {(<>)},<Enter>title = {(<>)},<Enter>crossref = {(<>)},<Enter>date = {(<>)},<Enter>}<Enter>(<>)<Esc>?loco<Enter>cw
+autocmd FileType bib inoremap <leader>im @bookinbook{loco,<Enter>author = {(<>)},<Enter>title = {(<>)},<Enter>date = {(<>)},<Enter>volume = {(<>)},<Enter>editor = {(<>)},<Enter>translator = {(<>)},<Enter>crossref = {(<>)},<Enter>}<Enter>(<>)<Esc>?loco<Enter>cw
 
 "HTML
 
@@ -228,17 +242,17 @@ autocmd FileType html inoremap <leader>4 <h4>ye</h4><Enter>(<>)<Esc>?ye<Enter>cw
 autocmd FileType html inoremap <leader>5 <h5>ye</h5><Enter>(<>)<Esc>?ye<Enter>cw
 autocmd FileType html inoremap <leader>6 <h6>ye</h6><Enter>(<>)<Esc>?ye<Enter>cw
 autocmd FileType html inoremap <leader>p <p>ye</p><Enter>(<>)<Esc>?ye<Enter>cw
-autocmd FileType html inoremap <leader>r <a href="ye">(<>)</a> (<>)<Esc>?ye<Enter>cw
+autocmd FileType html inoremap <leader>r <a href="ye">(<>)</a>(<>)<Esc>?ye<Enter>cw
 autocmd FileType html inoremap <leader>i  <img src="ye" alt="(<>)" width="(<>)" height="(<>)"> (<>)<Esc>?ye<Enter>cw
 autocmd FileType html inoremap <leader>b  <button>ye</button> (<>)<Esc>?ye<Enter>cw
 autocmd FileType html inoremap <leader>ul <ul><Enter><Tab><li>ye</li><Enter></ul><Enter>(<>)<Esc>?ye<Enter>cw
 autocmd FileType html inoremap <leader>ol <ol><Enter><Tab><li>ye</li><Enter></ol><Enter>(<>)<Esc>?ye<Enter>cw
 autocmd FileType html inoremap <leader>ni <Esc>A<Enter><li>ye</li><Esc>?ye<Enter>cw
 autocmd FileType html inoremap <leader>s <strong>ye</strong>(<>)<Esc>?ye<Enter>cw
-autocmd FileType html inoremap <leader>e <em>ye</ye>(<>)<Esc>?ye<Enter>cw
+autocmd FileType html inoremap <leader>e <em>ye</em>(<>)<Esc>?ye<Enter>cw
 autocmd FileType html inoremap <leader>N1 <sup id="1^"><a href="#1">1</a></sup>(<>)<Esc>Go<p class="sm">&#8212;&#8212;</p><Enter><p class="nt" id="1">[1] <a href="#1^">^</a></p><Esc>T]a
 autocmd FileType html inoremap <leader>n1 <sup id="1^"><a href="#1">1</a></sup>(<>)<Esc>?</body><Enter>O<p class="sm">&#8212;&#8212;</p><Enter><p class="nt" id="1">[1] <a href="#1^">^</a></p><Esc>T]a
-autocmd FileType html inoremap <leader>n2 <sup id="1^"><a href="#1">1</a></sup>(<>)<Esc>?</body><Enter>O<p class="sm">&#8212;&#8212;</p><Enter><p class="nt" id="1">[1] <a href="#1^">^</a></p><Esc>T]a
+autocmd FileType html inoremap <leader>n2 <sup id="2^"><a href="#2">2</a></sup>(<>)<Esc>?</body><Enter>O<p class="sm">&#8212;&#8212;</p><Enter><p class="nt" id="2">[2] <a href="#2^">^</a></p><Esc>T]a
 
 "Lilypond raro
 

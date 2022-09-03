@@ -1,0 +1,27 @@
+#!/bin/sh
+
+pdir="${XDG_DATA_HOME:-$HOME/.local/share}/plantillas/presentacion/"
+plantilla="${XDG_DATA_HOME:-$HOME/.local/share}/plantillas/presentacion/tec"
+pfil="${XDG_DATA_HOME:-$HOME/.local/share}/plantillas/presentacion/fil"
+cv="/home/runiales/Documentos/Documentación/cvs/Español/profe/Cipriano_CV.pdf"
+
+while getopts ":iech" o; do case "${o}" in
+	h) printf "Argumentos:\\n  -i: Modo interactivo\\n  -c: Correo electrónico\\n  -e: Editar plantillas\\n  -h: Muestra este mensaje\\n" && exit 1 ;;
+	c)
+		para=$(xclip -o) && echo "Preparando carta de presentación para $para"
+		printf "Nombre del centro para el correo: " ; read nombre
+		dir=$(mktemp -d)
+		sed s/"(<>)"/"$nombre"/ $pfil > $dir/correo
+		neomutt -e "source ~/.config/mutt/accounts/2-irpic.am@gmail.com.muttrc" -i $dir/correo -s "Profesor de Filosofía en varios idiomas" -E -a $cv -- $para && echo "Correo enviado" || echo "No se envió el correo" && exit 1;;
+	e) nvim $pdir/$(ls $pdir | fzf) && exit 1;;
+	i) echo $plantilla && exit 1;;
+	*) printf "Opción no válida: -%s\\n" "$OPTARG" && exit 1 ;;
+esac done
+
+if [ -z $1 ]; then
+	echo "¿Cómo se llama la empresa?"
+	read empresa
+	sed s/"(<>)"/"$empresa"/ $plantilla | xclip -sel clip
+else
+	sed s/"(<>)"/"$(echo $@)"/ $plantilla | xclip -sel clip
+fi

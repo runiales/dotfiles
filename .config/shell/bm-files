@@ -21,14 +21,16 @@ cfmc	${XDG_CONFIG_HOME:-$HOME/.config}/ncmpcpp/config	# ncmpcpp (music player) c
 cfl	${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc		# lf (file browser) config
 cfL	${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope		# lf's scope/preview file
 cfX	${XDG_CONFIG_HOME:-$HOME/.config}/sxiv/exec/key-handler	# sxiv (image viewer) key/script handler
-
-#Ll	/home/runiales/Documentos/Plantillas/latex/lógica.tex
-#Lp	/home/runiales/Documentos/Plantillas/latex/práctica.tex
-#Lt	/home/runiales/Documentos/Plantillas/latex/trabajo.tex
-#Lb	/home/runiales/Documentos/Plantillas/latex/beamer.tex
-#Ln	/home/runiales/Documentos/Plantillas/latex/normal.tex
-#Mn	/home/runiales/Documentos/Plantillas/t.mscz
-#Hn	/home/runiales/Documentos/Plantillas/a.html
-#Wn	/home/runiales/Documentos/Plantillas/a.odt
-#Lg	/home/runiales/Documentos/Plantillas/t.ly
 cfd	~/.local/src/dwm/config.h
+cft	${XDG_CONFIG_HOME:-$HOME/.config}/tareas/.taskrc
+
+Ll	$XDG_DOCUMENTS_DIR/Plantillas/latex/lógica.tex
+Lp	$XDG_DOCUMENTS_DIR/Plantillas/latex/práctica.tex
+Lt	$XDG_DOCUMENTS_DIR/Plantillas/latex/trabajo.tex
+Lb	$XDG_DOCUMENTS_DIR/Plantillas/latex/beamer.tex
+Ln	$XDG_DOCUMENTS_DIR/Plantillas/latex/normal.tex
+Lo	$XDG_DOCUMENTS_DIR/Plantillas/latex/tema.tex
+Mn	$XDG_DOCUMENTS_DIR/Plantillas/t.mscz
+Hn	$XDG_DOCUMENTS_DIR/Plantillas/a.html
+Wn	$XDG_DOCUMENTS_DIR/Plantillas/a.odt
+Lg	$XDG_DOCUMENTS_DIR/Plantillas/t.ly

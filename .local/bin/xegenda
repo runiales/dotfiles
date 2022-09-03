@@ -1,0 +1,23 @@
+#!/bin/sh
+
+#input de fecha inicial, fecha final y nombre
+
+
+#cambiar para ajustar fechas
+seq 0 421 | xargs -I {} date  +"%A, %d de %B de %Y" -d '20211105 {}day' | xargs -I {+} echo "\large\textbf{{+}}\\\\\\vspace{1cm}\normalsize\begin{tabular}{c|m{8cm} m{5cm}}\multicolumn{3}{l}{\hspace{2.75cm} \textit{plan} \hspace{7cm} \textit{notas}} \\\\\hline 08:00 & &  \\\\ 08:30 & &  \\\\ \hline 09:00 & &  \\\\ 09:30 & &  \\\\ \hline 10:00 & &  \\\\ 10:30 & &  \\\\ \hline 11:00 & &  \\\\ 11:30 & &  \\\\ \hline 12:00 & &  \\\\ 12:30 & &  \\\\ \hline 13:00 & &  \\\\ 13:30 & &  \\\\ \hline 14:00 & &  \\\\ 14:30 & &  \\\\ \hline 15:00 & &  \\\\ 15:30 & &  \\\\ \hline 16:00 & &  \\\\ 16:30 & &  \\\\ \hline 17:00 & &  \\\\ 17:30 & &  \\\\ \hline 18:00 & &  \\\\ 18:30 & &  \\\\ \hline 19:00 & &  \\\\ 19:30 & &  \\\\ \hline 20:00 & &  \\\\ 20:30 & &  \\\\ \hline 21:00 & &  \\\\ 21:30 & &  \\\\\end{tabular}\\\\\vspace{0.75cm}\vspace{0.25cm}\textbf{\textit{memorias}}\newpage" >> agenda.tex #escribe un horario para cada día
+
+#usar sed para añadir un calendario y unos objetivos antes de cada mes
+#usar sed para añadir unos objetivos del año antes del calendario de enero
+
+#crear archivo con datos de luna
+#convertir datos de luna a output que pueda compilar xelatex
+#Luna nueva: {\fontspec{Symbola}\symbol{"1F311}}\\%🌑
+#Luna creciente: {\fontspec{Symbola}\symbol{"1F312}}\\%🌒
+#Cuarto creciente: {\fontspec{Symbola}\symbol{"1F313}}\\%🌓
+#Luna creciente gibosa: {\fontspec{Symbola}\symbol{"1F314}}\\%🌔
+#Luna llena: {\fontspec{Symbola}\symbol{"1F315}}\\%🌕
+#Luna menguante gibosa: {\fontspec{Symbola}\symbol{"1F316}}\\%🌖
+#Cuarno menguante: {\fontspec{Symbola}\symbol{"1F317}}\\%🌗
+#Luna menguante: {\fontspec{Symbola}\symbol{"1F318}}%🌘
+
+#compilar agenda

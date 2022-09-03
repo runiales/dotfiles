@@ -1,0 +1,5 @@
+#!/bin/sh
+
+aw-server &
+aw-watcher-afk &
+aw-watcher-window &

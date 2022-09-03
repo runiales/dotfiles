@@ -1,0 +1,12 @@
+#!/bin/sh
+
+base=$(basename "$1")
+ext="${base##*.}"
+base="${base%.*}"
+
+#¿Pasar de estereo a mono?
+#ffmpeg -i videoflipped.mp4 -ac 1 videoflipped_Cipriano.mp4
+
+ffmpeg -i "$1" -itsoffset 1 -i "$1" -map 0:0 -map 1:1 -acodec copy -vcodec copy "$base"_synced."$ext" &&
+
+notify-send "📹 fixaudio." "Listo."

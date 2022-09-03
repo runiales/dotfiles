@@ -1,0 +1,22 @@
+#!/bin/sh
+
+aud=/home/runiales/Música/Audiciones/
+
+enlace=$(xclip -o)
+# if ! ping $enlace ; then notify-send "Descarga cancelada:\n No hay ningún enlace copiado" && exit 1 ; fi
+
+artista=$(ls $aud | dmenu -i -p "¿Quién?")
+[[ -z $artista ]] && notify-send "Descarga cancelada" && exit 1
+
+album=$(ls "$aud/$artista" | dmenu -i -p "¿Qué?")
+[[ -z $album ]] && notify-send "Descarga cancelada" && exit 1
+
+cd $aud
+mkdir "$artista" ; cd "$artista"
+mkdir "$album" ; cd "$album"
+
+notify-send "Descargando $album ($artista)"
+
+youtube-dl -v -x --audio-format mp3 -f bestaudio -o "%(title)s.%(ext)s" --add-metadata $enlace > $aud/$artista/$album/log 2>&1 && rm "$aud/$artista/$album/log"
+
+notify-send "$album ($artista) descargado"

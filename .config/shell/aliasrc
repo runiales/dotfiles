@@ -9,8 +9,6 @@ alias \
 	mv="mv -iv" \
 	rm="rm -vI" \
 	mkd="mkdir -pv" \
-	yt="youtube-dl --add-metadata -i" \
-	yta="yt -x -f bestaudio/best" \
 	ffmpeg="ffmpeg -hide_banner"
 
 # Colorize commands when possible.
@@ -20,14 +18,12 @@ alias \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi"
 
-# These common commands are just too long! Abbreviate them.
 alias \
 	ka="killall" \
 	g="git" \
 	trem="transmission-remote" \
 	YT="youtube-viewer" \
 	sdn="sudo shutdown -h now" \
-	lox="pkill -15 Xorg" \
 	f="$FILE" \
 	e="$EDITOR" \
 	v="$EDITOR" \
@@ -35,25 +31,42 @@ alias \
 	xi="sudo xbps-install" \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query" \
+	tt="taskwarrior-tui" \
+	ttc="taskwarrior-tui -r completed" \
+	tts="task timesheet" \
+	K="klick -P -i -s 3" \
 	z="zathura"
 
 alias \
 	magit="nvim -c MagitOnly" \
+	reds="redshift -l 37:-03" \
+	tlmgr="/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode" \
 	vw="nvim $HOME/Documentos/vimwiki/index.md" \
 	dia="nvim $HOME/Documentos/vimwiki/diary/$(date "+%Y-%m-%d" | sed -e "s/$/.md/")" \
+	plan="nvim $HOME/Documentos/vimwiki/diary/$(date -d tomorrow "+%Y-%m-%d" | sed -e "s/$/.md/")" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc" \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
 	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
 	yta='youtube-dl -x --audio-format mp3 -f bestaudio -o "%(title)s.%(ext)s" --add-metadata'\
-	Dc="rsync -aP --exclude={'cejbse1v.default-release/storage','cejbse1v.default-release/datareporting'} ~/.mozilla ~/.bashrc ~/.xprofile ~/.xinitrc ~/.zprofile ~/.zshrc ~/.jackdrc ~/.local/src ~/.local/bin ~/.local/share/mail ~/.local/share/password-store ~/.wyrdrc ~/Documentos ~/Imágenes ~/Música --exclude={'discord','Rambox','spotify','unity3d'}~/.config ~/pg /mnt/Disco/Copias\ de\ seguridad/"\
-	Js="ssh root@78.30.56.121"\
-	Jc="rsync -aP --exclude={'cejbse1v.default-release/storage','cejbse1v.default-release/datareporting'} ~/.mozilla ~/.bashrc ~/.xprofile ~/.xinitrc ~/.zprofile ~/.zshrc ~/.jackdrc ~/.local/src ~/.local/bin ~/.local/share/mail ~/.local/share/password-store ~/.wyrdrc ~/Documentos ~/Imágenes ~/Música --exclude={'discord','Rambox','spotify','unity3d'}~/.config ~/pg root@78.30.56.121:/home/cipri/cs/"\
-	Jp="rsync -aP ~/pg/ root@78.30.56.121:/data/www/"\
+	yt='ytfzf -t'\
+	bca='mpv --start=0:00 ~/Documentos/Biblioteca/Idiomas/chino/defrancis\ audio/b/bc4.mp3'\
+	bcra='mpv --start=3:15 ~/Documentos/Biblioteca/Idiomas/chino/defrancis\ audio/b/bcr01.mp3'\
+	Dc="rsync -aP --exclude={'cejbse1v.default-release/storage','cejbse1v.default-release/datareporting'} ~/.mozilla ~/.bashrc ~/.xprofile ~/.xinitrc ~/.zprofile ~/.jackdrc ~/.local/src ~/.local/bin ~/.local/share/mail ~/.local/share/password-store ~/.wyrdrc ~/Documentos ~/Imágenes ~/Música --exclude={'discord','Rambox','spotify','unity3d'}~/.config ~/pg /mnt/Disco/copia/"\
+	Dp="rsync -aP --exclude={'cejbse1v.default-release/storage','cejbse1v.default-release/datareporting'} ~/.mozilla ~/.bashrc ~/.xprofile ~/.xinitrc ~/.zprofile ~/.jackdrc ~/.local/src ~/.local/bin ~/.local/share/mail ~/.local/share/password-store ~/.wyrdrc ~/Documentos ~/Imágenes ~/Música --exclude={'discord','Rambox','spotify','unity3d'}~/.config ~/pg /mnt/Disco/Copia\ de\ seguridad\ Cipri/"\
+	Js="ssh root@sj"\
+	Jsc="ssh root@192.168.1.140"\
+	Jc="rsync -aP --exclude={'cejbse1v.default-release/storage','cejbse1v.default-release/datareporting'} ~/.mozilla ~/.bashrc ~/.xprofile ~/.xinitrc ~/.ssh ~/.zprofile ~/.jackdrc ~/.local/src ~/.local/bin ~/.local/share/mail ~/.local/share/password-store ~/.local/share/pg ~/.wyrdrc ~/Documentos ~/Imágenes ~/Música --exclude={'discord','Rambox','spotify','unity3d'} ~/.config root@sj:/home/runiales/cs/"\
+	Pg="rsync -rtvzP --delete ~/.local/share/pg/ cipriano.es:/var/www/cipriano"\
 	Jcs="ssh root@192.168.1.140"\
-	Jcc="rsync -aP --exclude={'cejbse1v.default-release/storage','cejbse1v.default-release/datareporting'} ~/.mozilla ~/.bashrc ~/.xprofile ~/.xinitrc ~/.zprofile ~/.zshrc ~/.jackdrc ~/.local/src ~/.local/bin ~/.local/share/mail ~/.local/share/password-store ~/.wyrdrc ~/Documentos ~/Imágenes ~/Música --exclude={'discord','Rambox','spotify','unity3d'}~/.config ~/pg root@192.168.1.140:/home/cipri/cs/"\
-	Jpc="rsync -aP ~/pg/ root@192.168.1.140:/data/www/"\
+	Jcc="rsync -aP --exclude={'cejbse1v.default-release/storage','cejbse1v.default-release/datareporting'} ~/.mozilla ~/.bashrc ~/.xprofile ~/.xinitrc ~/.ssh ~/.zprofile ~/.jackdrc ~/.local/src ~/.local/bin ~/.local/share/mail ~/.local/share/password-store ~/.local/share/pg ~/.wyrdrc ~/Documentos ~/Imágenes ~/Música --exclude={'discord','Rambox','spotify','unity3d'} ~/.config root@db:/home/runiales/cs/"\
+	Jpc="rsync -aP ~/pg/ root@192.168.1.140:/var/www/cipriano/"\
 	bib="nvim $BIB"\
 	wpj='wol 00:26:22:f0:24:9b'\
-	tfm='cd /home/runiales/Documentos/Facultad/Máster/Segundo_Semestre/TFM && nvim trabajo.tex'\
+	scio='zathura ~/Documentos/Biblioteca/Religión/labibliavulgatal01scio.djvu'\
+	aadz='zathura ~/Documentos/Biblioteca/Filosofía/aadz/Nietzsche\ Friedrich\ -\ Also\ Sprach\ Zarathustra.pdf & st -e nvim ~/Documentos/Biblioteca/Filosofía/aadz/aadz.tex &'\
+	cdp='cd /home/runiales/Documentos/Estudios/Facultad/maes/prácticas/ && nvim Cipriano_cuaderno.tex'\
+	tfm='cd /home/runiales/Documentos/Estudios/Facultad/maes/tfm/ && nvim cipriano_tfm.tex'\
 	pfm='cd /home/runiales/Documentos/Facultad/Máster/Segundo_Semestre/TFM/presentación && nvim b.tex'\
-	lo='pkill -15 Xorg'
+	fb='B && z "$(fzf)"'\
+	T='nvim "$(find /home/runiales/Documentos/Trabajo/Oposiciones/temas | grep tex | fzf)"'\
+	llat='zathura ${XDG_DOCUMENTS_DIR:-$HOME/Documentos}/Biblioteca/Lantiguas/latín/lingualat.pdf'

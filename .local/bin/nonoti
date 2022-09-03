@@ -1,0 +1,9 @@
+#!/bin/sh
+
+[ $(dunstctl is-paused) = "false" ] && notify-send -t 999 "Desactivando notificaciones 🦧" && sleep 1
+
+dunstctl set-paused toggle
+
+[ $(dunstctl is-paused) = "true" ] && echo 🦧 > /tmp/nonoti || echo "" > /tmp/nonoti && notify-send "Notificaciones activadas"
+
+pkill -RTMIN+20 "${STATUSBAR:-dwmblocks}"

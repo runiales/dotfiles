@@ -1,0 +1,77 @@
+# [Created by task 2.5.1 9/14/2020 13:17:24]
+# Taskwarrior program configuration file.
+# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-color',
+# 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# Use the command 'task show' to see all defaults and overrides
+
+# Files
+data.location=~/.config/tareas/.task/
+
+# Color theme (uncomment one to use)
+#include /usr/share/doc/task/rc/light-16.theme
+#include /usr/share/doc/task/rc/light-256.theme
+#include /usr/share/doc/task/rc/dark-16.theme
+include /usr/share/doc/task/rc/dark-256.theme
+#include /usr/share/doc/task/rc/dark-red-256.theme
+#include /usr/share/doc/task/rc/dark-green-256.theme
+#include /usr/share/doc/task/rc/dark-blue-256.theme
+#include /usr/share/doc/task/rc/dark-violets-256.theme
+#include /usr/share/doc/task/rc/dark-yellow-green.theme
+#include /usr/share/doc/task/rc/dark-gray-256.theme
+#include /usr/share/doc/task/rc/dark-gray-blue-256.theme
+#include /usr/share/doc/task/rc/solarized-dark-256.theme
+#include /usr/share/doc/task/rc/solarized-light-256.theme
+#include /usr/share/doc/task/rc/no-color.theme
+
+context.trabajo=+opo or +mas or +tra
+context.estudio=+lit or +fil or +chi or +lat or +rel or +gri
+context.creativo=+mus or +web
+context.técnico=+tec or +cert
+context.motril=+mot
+weekstart=monday
+calendar.details=full
+dateformat=d.m
+dateformat.info=d.m.y H:N
+urgency.uda.priority.L.coefficient=-2.5
+urgency.blocking.coefficient=2.0
+urgency.waiting.coefficient=-4.0
+urgency.scheduled.coefficient=-2.0
+calendar.details.report=next
+report.next.filter=status:pending -WAITING
+report.next.columns=id,start.age,project,description.count,due.relative,scheduled.remaining,wait.remaining,depends,priority,urgency
+report.next.labels=ID,Active,Project,Description,Due,Sch,Wait,Deps,P,Urg
+#news.version=2.6.0
+
+#uda.taskwarrior-tui.selection.indicator=•
+uda.taskwarrior-tui.selection.indicator=->
+uda.taskwarrior-tui.selection.bold=yes
+uda.taskwarrior-tui.selection.italic=no
+uda.taskwarrior-tui.selection.dim=yes
+uda.taskwarrior-tui.selection.blink=no
+uda.taskwarrior-tui.style.report.selection=color15 on color28
+#uda.taskwarrior-tui.style.report.selection=color237 on color246
+#uda.taskwarrior-tui.mark.indicator=✔️
+#uda.taskwarrior-tui.unmark.indicator=
+#uda.taskwarrior-tui.mark-selection.indicator=x
+#uda.taskwarrior-tui.unmark-selection.indicator=<>
+#uda.taskwarrior-tui.calendar.months-per-row=4
+uda.taskwarrior-tui.task-report.show-info=false
+uda.taskwarrior-tui.task-report.looping=false
+uda.taskwarrior-tui.task-report.jump-on-task-add=true
+uda.taskwarrior-tui.task-report.prompt-on-delete=true
+uda.taskwarrior-tui.task-report.prompt-on-done=true
+uda.taskwarrior-tui.style.context.active=black on rgb444
+#uda.taskwarrior-tui.style.calendar.title=black on rgb444
+#uda.taskwarrior-tui.task-report.next.filter=$(task show report.next.filter)
+uda.taskwarrior-tui.task-report.auto-insert-double-quotes-on-add=false
+report.completed.filter=status:completed end.after:-1mo
+report.completed.sort=end-
+report.completed.columns=end.age,entry,priority,project,recur.indicator,description.count
+report.completed.labels=End,Entry,P,Project,R,Description
+dateformat.report=D.M.Y

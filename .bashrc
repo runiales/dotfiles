@@ -2,8 +2,6 @@
 # ~/.bashrc
 #
 
-set -o vi
-
 [[ $- != *i* ]] && return
 
 colors() {
@@ -97,8 +95,6 @@ alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
 alias more=less
-alias v=nvim
-alias p="sudo pacman"
 
 xhost +local:root > /dev/null 2>&1
 

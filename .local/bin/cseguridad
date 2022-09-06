@@ -80,10 +80,10 @@ while getopts :d:il:h opt; do
 		exit 1
 	;;
 	l)
-		orig="$personal $firefox $sfiles"
+		orig="$personal $fireprofile $sfiles"
 		remoto=$(printf "$jfuera\n$jcasa\n$disco" | dmenu -i -p "¿Desde dónde?")
 		notify-send "Restaurando copia de seguridad"
-		rsync -aP '$remoto$orig' $HOME || notify-send "Hubo un error durante la copia de seguidad" && exit 0
+		rsync -aPR '$remoto$orig' $HOME || notify-send "Hubo un error durante la copia de seguidad" && exit 0
 		notify-send "Copia de seguridad restaurada con éxito"
 		exit 1
 	;;

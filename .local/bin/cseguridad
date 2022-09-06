@@ -80,7 +80,7 @@ while getopts :d:il:h opt; do
 		exit 1
 	;;
 	l)
-		orig="$personal $fireprofile $sfiles"
+		orig="$hfiles $personal $fireprofile $cfiles $progs $sfiles" # cambia firefox por fireprofile para evitar conflictos con ls arriba
 		remoto=$(printf "$jfuera\n$jcasa\n$disco" | dmenu -i -p "¿Desde dónde?")
 		notify-send "Restaurando copia de seguridad"
 		rsync -aPR '$remoto$orig' $HOME || notify-send "Hubo un error durante la copia de seguidad" && exit 0

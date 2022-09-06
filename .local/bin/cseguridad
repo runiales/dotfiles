@@ -1,0 +1,100 @@
+#!/bin/sh
+
+cd $HOME
+
+hfiles=".bashrc .xprofile .wyrdrc .xinitrc .ssh .zprofile .jackdrc"
+personal="Documentos Imágenes Música"
+
+firebookmarks="$(ls -Art $HOME/.mozilla/firefox/cejbse1v.default-release/bookmarkbackups/ | tail -n 1)"
+fireprofile=".mozilla/firefox/cejbse1v.default-release"
+firefox="$fireprofile/extensions
+	$fireprofile/bookmarkbackups/$firebookmarks
+	$fireprofile/prefs.js"
+
+cfiles=".config/calcurse
+	.config/dunst
+	.config/fontconfig
+	.config/lf
+	.config/mpd
+	.config/ncmpcpp
+	.config/newsboat
+	.config/nvim
+	.config/pulse
+	.config/shell
+	.config/sxiv
+	.config/tareas
+	.config/wget
+	.config/x11
+	.config/zsh
+	.config/mimeapps.list"
+progs=".local/src
+	.local/bin"
+sfiles=".local/share/src
+	.local/share/mail
+	.local/share/pg
+	.local/share/larbs
+	.local/share/plantillas
+	.local/share/stardict
+	.local/share/taskwarrior-tui
+	.local/share/vital
+	.local/share/Vitalium
+	.local/share/zathura
+	.local/share/bg
+	.local/share/password-store"
+
+orig="$hfiles $personal $firefox $cfiles $progs $sfiles"
+
+jfuera="root@sj:/home/runiales/cs/"
+jcasa="root@db:/home/runiales/cs/"
+disco="/mnt/Disco/cseguridad/"
+
+show_help() {
+	cat <<-END
+		usage: cseguridad [-j] [-c] [-d] [-i] [-l] [-h]
+		    -j: remoto juntafuera
+		    -c: remoto juntacasa
+		    -d: remoto discoduro
+		    -i: inverso (recuperar copia)
+		    -l: -i post-larbs
+		    -h: print this message
+	END
+}
+
+# TODO: añadir warnings
+
+while getopts :i:D:K:l opt; do
+	case "$opt" in
+	# K)
+	# 	gpg --export-secret-keys --armor --output $remoto
+	# ;;
+	D)
+		opcion="--delete"
+	;;
+	i)
+		notify-send "Restaurando copia de seguridad"
+		rsync -aP $remoto $HOME || notify-send "Hubo un error durante la copia de seguidad" && exit 0
+		notify-send "Copia de seguridad restaurada con éxito"
+		exit 1
+	;;
+	l)
+		orig="$personal $firefox $sfiles"
+		remoto=$(printf "$jfuera\n$jcasa\n$disco" | dmenu -i -p "¿Desde dónde?")
+		notify-send "Restaurando copia de seguridad"
+		rsync -aP '$remoto$orig' $HOME || notify-send "Hubo un error durante la copia de seguidad" && exit 0
+		notify-send "Copia de seguridad restaurada con éxito"
+		exit 1
+	;;
+	h|\?)
+		show_help
+		exit 1
+	;;
+	esac
+done
+
+remoto=$(printf "$jfuera\n$jcasa\n$disco" | dmenu -i -p "¿A dónde?")
+
+notify-send "Copia de seguridad en proceso"
+
+rsync -aRP $opcion $orig $remoto || notify-send "Hubo un error durante la copia de seguidad" && exit 0
+
+notify-send "Copia de seguridad terminada con éxito"

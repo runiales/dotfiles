@@ -3,7 +3,7 @@
 cd $HOME
 
 hfiles=".bashrc .xprofile .wyrdrc .xinitrc .ssh .zprofile .jackdrc"
-personal="Documentos Imágenes Música"
+personal="Documentos Imágenes Música Vídeos"
 
 firebookmarks="$(ls -Art $HOME/.mozilla/firefox/cejbse1v.default-release/bookmarkbackups/ | tail -n 1)"
 fireprofile=".mozilla/firefox/cejbse1v.default-release"
@@ -39,6 +39,7 @@ sfiles=".local/share/mail
 	.local/share/Vitalium
 	.local/share/zathura
 	.local/share/bg
+	.local/share/isos
 	.local/share/password-store"
 
 orig="$hfiles $personal $firefox $cfiles $progs $sfiles"

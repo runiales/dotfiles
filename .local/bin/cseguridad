@@ -60,15 +60,18 @@ show_help() {
 	END
 }
 
-# TODO: añadir warnings
+# TODO: añadir warnings yes no
+# opciones
+# keys
 
-while getopts :i:D:K:l opt; do
+while getopts :d:il:h opt; do
 	case "$opt" in
 	# K)
 	# 	gpg --export-secret-keys --armor --output $remoto
 	# ;;
-	D)
-		opcion="--delete"
+	d)
+		echo "peurha"
+		opcion="--delete-after"
 	;;
 	i)
 		notify-send "Restaurando copia de seguridad"
@@ -95,6 +98,7 @@ remoto=$(printf "$jfuera\n$jcasa\n$disco" | dmenu -i -p "¿A dónde?")
 
 notify-send "Copia de seguridad en proceso"
 
+# echo "rsync -aRP $opcion $orig $remoto" || notify-send "Hubo un error durante la copia de seguidad" && exit 0
 rsync -aRP $opcion $orig $remoto || notify-send "Hubo un error durante la copia de seguidad" && exit 0
 
 notify-send "Copia de seguridad terminada con éxito"

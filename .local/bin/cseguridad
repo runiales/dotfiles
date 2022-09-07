@@ -87,4 +87,4 @@ remoto=$(printf "$jfuera\n$jcasa\n$disco" | fzf)
 [[ -z $remoto ]] && echo "Cancelado. No se eligió ningún destino." && exit 1
 
 notify-send "Copia de seguridad en proceso"
-rsync -aRP $opcion "$orig" "$remoto" && notify-send "Copia de seguridad terminada con éxito" || (notify-send "Hubo un error durante la copia de seguidad" && exit 0)
+rsync -aRP $opcion $orig $remoto && notify-send "Copia de seguridad terminada con éxito" || (notify-send "Hubo un error durante la copia de seguidad" && exit 0)

@@ -5,11 +5,11 @@ cd $HOME
 hfiles=".bashrc .xprofile .wyrdrc .xinitrc .ssh .zprofile .jackdrc"
 personal="Documentos Imágenes Música Vídeos"
 
-firebookmarks="$(ls -Art $HOME/.mozilla/firefox/cejbse1v.default-release/bookmarkbackups/ | tail -n 1)"
 fireprofile=".mozilla/firefox/cejbse1v.default-release"
+firebookmarks="$fireprofile/bookmarkbackups/$(ls -Art $fireprofile/bookmarkbackups/ | tail -n 1)"
 firefox="$fireprofile/extensions
-	$fireprofile/bookmarkbackups/$firebookmarks
-	$fireprofile/prefs.js"
+	$fireprofile/prefs.js
+	$firebookmarks"
 
 cfiles=".config/calcurse
 	.config/dunst
@@ -50,8 +50,9 @@ disco="/mnt/Disco/cseguridad/"
 
 show_help() {
 	cat <<-END
-		usage: cseguridad [-d] [-r] [-o <opcion>] [-h]
+		usage: cseguridad [-d] [-t] [-r] [-o <opcion>] [-h]
 		    -d: --delete-after
+		    -t: actualiza tareas
 		    -r: restaura $HOME a partir de otra copia de seguridad
 		    -o: elige <opcion>
 		    -h: print this message
@@ -59,15 +60,25 @@ show_help() {
 }
 
 restaurar=false
+task=false
 
-while getopts "rdho:" o; do case "${o}" in
+while getopts "rtdho:" o; do case "${o}" in
 	o) opcion=$OPTARG ;;
-	d) opcion="--delete-after" ;;
+	t) task=true ;;
+	d) delete="--delete-after" ;;
 	r) restaurar=true ;;
 	h|\?) show_help	exit 1 ;;
 esac done
 
 if $restaurar; then
+	if $task; then
+		echo "Fuente:"
+		remoto=$(printf "$jfuera\n$jcasa\n$disco" | fzf)
+		[[ -z $remoto ]] && echo "Cancelado. No se eligió ninguna fuente." && exit 1
+		remoto="$remoto/./.config/tareas"
+		rsync -aP --update $opcion $remoto $HOME/.config && notify-send "Tareas locales actualizadas con éxito" || (notify-send "Hubo un error durante la actualización de las tareas locales" && exit 0)
+		exit 1
+	fi
 	echo "Fuente:"
 	remoto=$(printf "$jfuera\n$jcasa\n$disco" | fzf)
 	[[ -z $remoto ]] && echo "Cancelado. No se eligió ninguna fuente." && exit 1
@@ -78,13 +89,24 @@ if $restaurar; then
 	! echo "$confirm" | grep -iq "^y$" && echo "Cancelado." && exit 1
 
 	notify-send "Restaurando copia de seguridad"
-	rsync -aP $opcion $remoto $HOME && notify-send "Copia de seguridad restaurada con éxito" || (notify-send "Hubo un error durante la copia de seguidad" && exit 0)
+	rsync -aP $delete $opcion $remoto $HOME && notify-send "Copia de seguridad restaurada con éxito" || (notify-send "Hubo un error durante la copia de seguidad" && exit 0)
 	exit 1
 fi
+
+if $task; then
+	echo "Destino:"
+	remoto=$(printf "$jfuera\n$jcasa\n$disco" | fzf)
+	[[ -z $remoto ]] && echo "Cancelado. No se eligió ningún destino." && exit 1
+	orig=".config/tareas"
+	rsync -aP --update $opcion $orig $remoto/.config && notify-send "Tareas remotas actualizadas con éxito" || (notify-send "Hubo un error durante la actualización de las tareas remotas" && exit 0)
+	exit 1
+fi
+
+# Copia normal
 
 echo "Destino:"
 remoto=$(printf "$jfuera\n$jcasa\n$disco" | fzf)
 [[ -z $remoto ]] && echo "Cancelado. No se eligió ningún destino." && exit 1
 
 notify-send "Copia de seguridad en proceso"
-rsync -aRP $opcion $orig $remoto && notify-send "Copia de seguridad terminada con éxito" || (notify-send "Hubo un error durante la copia de seguidad" && exit 0)
+rsync -aRP $delete $update $opcion $orig $remoto && notify-send "Copia de seguridad terminada con éxito" || (notify-send "Hubo un error durante la copia de seguidad" && exit 0)

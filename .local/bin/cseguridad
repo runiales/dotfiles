@@ -48,57 +48,43 @@ jfuera="root@sj:/home/runiales/cs/"
 jcasa="root@db:/home/runiales/cs/"
 disco="/mnt/Disco/cseguridad/"
 
-# TODO: añadir warnings yes no
-# opciones
-# keys
-
 show_help() {
 	cat <<-END
-		usage: cseguridad [-j] [-c] [-d] [-i] [-l] [-h]
-		    -j: remoto juntafuera
-		    -c: remoto juntacasa
-		    -d: remoto discoduro
-		    -i: inverso (recuperar copia)
-		    -l: -i post-larbs
+		usage: cseguridad [-d] [-r] [-o <opcion>] [-h]
+		    -d: --delete-after
+		    -r: restaura $HOME a partir de otra copia de seguridad
+		    -o: elige <opcion>
 		    -h: print this message
 	END
 }
 
-while getopts :d:il:h opt; do
-	case "$opt" in
-	# K)
-	# 	gpg --export-secret-keys --armor --output $remoto
-	# ;;
-	d)
-		echo "peurha"
-		opcion="--delete-after"
-	;;
-	i)
-		notify-send "Restaurando copia de seguridad"
-		rsync -aP $remoto $HOME || notify-send "Hubo un error durante la copia de seguidad" && exit 0
-		notify-send "Copia de seguridad restaurada con éxito"
-		exit 1
-	;;
-	l)
-		orig="$hfiles $personal $fireprofile $cfiles $progs $sfiles" # cambia firefox por fireprofile para evitar conflictos con ls arriba
-		remoto=$(printf "$jfuera\n$jcasa\n$disco" | dmenu -i -p "¿Desde dónde?")
-		notify-send "Restaurando copia de seguridad"
-		rsync -aPR '$remoto$orig' $HOME || notify-send "Hubo un error durante la copia de seguidad" && exit 0
-		notify-send "Copia de seguridad restaurada con éxito"
-		exit 1
-	;;
-	h|\?)
-		show_help
-		exit 1
-	;;
-	esac
-done
+restaurar=false
 
-remoto=$(printf "$jfuera\n$jcasa\n$disco" | dmenu -i -p "¿A dónde?")
+while getopts "rdho:" o; do case "${o}" in
+	o) opcion=$OPTARG ;;
+	d) opcion="--delete-after" ;;
+	r) restaurar=true ;;
+	h|\?) show_help	exit 1 ;;
+esac done
+
+if $restaurar; then
+	echo "Fuente:"
+	remoto=$(printf "$jfuera\n$jcasa\n$disco" | fzf)
+	[[ -z $remoto ]] && echo "Cancelado. No se eligió ninguna fuente." && exit 1
+
+	echo "rsync -aR $opcion $remoto $HOME"
+	echo "¿Restaurar? [y/N]"
+	read -r confirm
+	! echo "$confirm" | grep -iq "^y$" && echo "Cancelado." && exit 1
+
+	notify-send "Restaurando copia de seguridad"
+	rsync -aP $opcion $remoto $HOME && notify-send "Copia de seguridad restaurada con éxito" || (notify-send "Hubo un error durante la copia de seguidad" && exit 0)
+	exit 1
+fi
+
+echo "Destino:"
+remoto=$(printf "$jfuera\n$jcasa\n$disco" | fzf)
+[[ -z $remoto ]] && echo "Cancelado. No se eligió ningún destino." && exit 1
 
 notify-send "Copia de seguridad en proceso"
-
-# echo "rsync -aRP $opcion $orig $remoto" || notify-send "Hubo un error durante la copia de seguidad" && exit 0
-rsync -aRP $opcion $orig $remoto || (notify-send "Hubo un error durante la copia de seguidad" && exit 0)
-
-notify-send "Copia de seguridad terminada con éxito"
+rsync -aRP $opcion "$orig" "$remoto" && notify-send "Copia de seguridad terminada con éxito" || (notify-send "Hubo un error durante la copia de seguidad" && exit 0)

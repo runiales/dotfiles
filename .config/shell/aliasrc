@@ -39,7 +39,6 @@ alias \
 
 alias \
 	magit="nvim -c MagitOnly" \
-	reds="redshift -l 37:-03" \
 	tlmgr="/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode" \
 	vw="nvim $HOME/Documentos/vimwiki/index.md" \
 	dia="nvim $HOME/Documentos/vimwiki/diary/$(date "+%Y-%m-%d" | sed -e "s/$/.md/")" \
@@ -51,14 +50,8 @@ alias \
 	yt='ytfzf -t'\
 	bca='mpv --start=0:00 ~/Documentos/Biblioteca/Idiomas/chino/defrancis\ audio/b/bc4.mp3'\
 	bcra='mpv --start=3:15 ~/Documentos/Biblioteca/Idiomas/chino/defrancis\ audio/b/bcr01.mp3'\
-	Dc="rsync -aP --exclude={'cejbse1v.default-release/storage','cejbse1v.default-release/datareporting'} ~/.mozilla ~/.bashrc ~/.xprofile ~/.xinitrc ~/.zprofile ~/.jackdrc ~/.local/src ~/.local/bin ~/.local/share/mail ~/.local/share/password-store ~/.wyrdrc ~/Documentos ~/Imágenes ~/Música --exclude={'discord','Rambox','spotify','unity3d'}~/.config ~/pg /mnt/Disco/copia/"\
-	Dp="rsync -aP --exclude={'cejbse1v.default-release/storage','cejbse1v.default-release/datareporting'} ~/.mozilla ~/.bashrc ~/.xprofile ~/.xinitrc ~/.zprofile ~/.jackdrc ~/.local/src ~/.local/bin ~/.local/share/mail ~/.local/share/password-store ~/.wyrdrc ~/Documentos ~/Imágenes ~/Música --exclude={'discord','Rambox','spotify','unity3d'}~/.config ~/pg /mnt/Disco/Copia\ de\ seguridad\ Cipri/"\
-	Js="ssh root@sj"\
-	Jsc="ssh root@192.168.1.140"\
-	Jc="rsync -aP --exclude={'cejbse1v.default-release/storage','cejbse1v.default-release/datareporting'} ~/.mozilla ~/.bashrc ~/.xprofile ~/.xinitrc ~/.ssh ~/.zprofile ~/.jackdrc ~/.local/src ~/.local/bin ~/.local/share/mail ~/.local/share/password-store ~/.local/share/pg ~/.wyrdrc ~/Documentos ~/Imágenes ~/Música --exclude={'discord','Rambox','spotify','unity3d'} ~/.config root@sj:/home/runiales/cs/"\
+	b='echo -e "enter brightness:\n"; read val; xrandr  --output HDMI2 --brightness "${val}"'\
 	Pg="rsync -rtvzP --delete ~/.local/share/pg/ cipriano.es:/var/www/cipriano"\
-	Jcs="ssh root@192.168.1.140"\
-	Jcc="rsync -aP --exclude={'cejbse1v.default-release/storage','cejbse1v.default-release/datareporting'} ~/.mozilla ~/.bashrc ~/.xprofile ~/.xinitrc ~/.ssh ~/.zprofile ~/.jackdrc ~/.local/src ~/.local/bin ~/.local/share/mail ~/.local/share/password-store ~/.local/share/pg ~/.wyrdrc ~/Documentos ~/Imágenes ~/Música --exclude={'discord','Rambox','spotify','unity3d'} ~/.config root@db:/home/runiales/cs/"\
 	Jpc="rsync -aP ~/pg/ root@192.168.1.140:/var/www/cipriano/"\
 	bib="nvim $BIB"\
 	wpj='wol 00:26:22:f0:24:9b'\

@@ -24,7 +24,7 @@ application/x-extension-shtml=firefox.desktop
 application/xhtml+xml=firefox.desktop
 application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
-x-scheme-handler/tg=userapp-Telegram Desktop-Y662X0.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-IVXCS1.desktop
 x-scheme-handler/discord-610508934456934412=discord-610508934456934412.desktop
 x-scheme-handler/msteams=teams.desktop
 
@@ -40,4 +40,4 @@ application/x-extension-shtml=firefox.desktop;
 application/xhtml+xml=firefox.desktop;
 application/x-extension-xhtml=firefox.desktop;
 application/x-extension-xht=firefox.desktop;
-x-scheme-handler/tg=userapp-Telegram Desktop-Y662X0.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-Y662X0.desktop;userapp-Telegram Desktop-IVXCS1.desktop;

@@ -5,8 +5,8 @@ cd $HOME
 hfiles=".bashrc .xprofile .wyrdrc .xinitrc .ssh .zprofile .jackdrc"
 personal="Documentos Imágenes Música Vídeos"
 
-fireprofile=".mozilla/firefox/cejbse1v.default-release"
-firebookmarks="$fireprofile/bookmarkbackups/$(ls -Art $fireprofile/bookmarkbackups/ | tail -n 1)"
+fireprofile=".mozilla/firefox/$(ls -t .mozilla/firefox/ | grep default-release | head -n 1)"
+firebookmarks="$fireprofile/bookmarkbackups/$(ls -t $fireprofile/bookmarkbackups/ | head -n 1)"
 firefox="$fireprofile/extensions
 	$fireprofile/prefs.js
 	$firebookmarks"

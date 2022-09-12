@@ -110,12 +110,12 @@ map <c-y> up
 map V push :!nvim<space>
 
 
-map Ll push :!cp<space>/home/runiales/.local/share/plantillas/latex/lógica.tex<space>.tex<left><left><left><left>
-map Lp push :!cp<space>/home/runiales/.local/share/plantillas/latex/práctica.tex<space>.tex<left><left><left><left>
-map Lt push :!cp<space>/home/runiales/.local/share/plantillas/latex/trabajo.tex<space>.tex<left><left><left><left>
-map Lb push :!cp<space>/home/runiales/.local/share/plantillas/latex/beamer.tex<space>.tex<left><left><left><left>
-map Ln push :!cp<space>/home/runiales/.local/share/plantillas/latex/normal.tex<space>.tex<left><left><left><left>
-map Lo push :!cp<space>/home/runiales/.local/share/plantillas/latex/tema.tex<space>.tex<left><left><left><left>
+map Tl push :!cp<space>/home/runiales/.local/share/plantillas/latex/lógica.tex<space>.tex<left><left><left><left>
+map Tp push :!cp<space>/home/runiales/.local/share/plantillas/latex/práctica.tex<space>.tex<left><left><left><left>
+map Tt push :!cp<space>/home/runiales/.local/share/plantillas/latex/trabajo.tex<space>.tex<left><left><left><left>
+map Tb push :!cp<space>/home/runiales/.local/share/plantillas/latex/beamer.tex<space>.tex<left><left><left><left>
+map Tn push :!cp<space>/home/runiales/.local/share/plantillas/latex/normal.tex<space>.tex<left><left><left><left>
+map Tt push :!cp<space>/home/runiales/.local/share/plantillas/latex/tema.tex<space>.tex<left><left><left><left>
 
 map Pn push :!cp<space>/home/runiales/Documentos/Plantillas/t.mscz<space>
 

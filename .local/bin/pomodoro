@@ -1,6 +1,6 @@
 #!/bin/sh
 
-potatofile="${XDG_DATA_HOME:-$HOME/.local/share}/pomodoro"
+potatofile="${XDG_DATA_HOME:-$HOME/.local/share}/tomate/pomodoro"
 
 pkill tomate && echo "" > $potatofile || tomate
 

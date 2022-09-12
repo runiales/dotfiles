@@ -4,7 +4,7 @@ WORK=25
 PAUSE=5
 INTERACTIVE=true
 MUTE=false
-potatofile="${XDG_DATA_HOME:-$HOME/.local/share}/pomodoro"
+potatofile="${XDG_DATA_HOME:-$HOME/.local/share}/tomate/pomodoro"
 
 show_help() {
 	cat <<-END
@@ -20,7 +20,7 @@ show_help() {
 }
 
 play_notification() {
-	aplay -q /usr/lib/potato/notification.wav&
+	aplay -q ${XDG_DATA_HOME:-$HOME/.local/share}/tomate/notification.wav&
 }
 
 while getopts :sw:b:m opt; do

@@ -44,8 +44,8 @@ urgency.waiting.coefficient=-4.0
 urgency.scheduled.coefficient=-2.0
 calendar.details.report=next
 report.next.filter=status:pending -WAITING
-report.next.columns=id,start.age,project,description.count,due.relative,scheduled.remaining,wait.remaining,depends,priority,urgency
-report.next.labels=ID,Active,Project,Description,Due,Sch,Wait,Deps,P,Urg
+report.next.columns=id,start.age,project,description.count,wait.remaining,scheduled.relative,due.relative,depends,priority,urgency
+report.next.labels=ID,Active,Project,Description,Wait,Sch,Due,Deps,P,Urg
 #news.version=2.6.0
 
 #uda.taskwarrior-tui.selection.indicator=•

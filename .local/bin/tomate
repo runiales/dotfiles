@@ -20,7 +20,7 @@ show_help() {
 }
 
 play_notification() {
-	aplay -q ${XDG_DATA_HOME:-$HOME/.local/share}/tomate/notification.wav&
+	aplay -q ${XDG_DATA_HOME:-$HOME/.local/share}/tomate/notification.wav &
 }
 
 while getopts :sw:b:m opt; do
@@ -69,10 +69,12 @@ do
 		if $INTERACTIVE; then
 			read -d '' -t 0.001
 			echo -e "\a"
-			siguente="Seguir trabajando"
-			respuesta=$(printf "Descansar\nSeguir trabajando\nParar" | dmenu -i -p "🍅 acabado")
-			[[ $respuesta = "Seguir trabajando" || -z $respuesta ]] && echo -e "retomar\n$rondas" > $potatofile && pkill -RTMIN+28 "${STATUSBAR:-dwmblocks}" && exit 1
-			[[ $respuesta = "Parar" ]] && echo "" > $potatofile && pkill -RTMIN+28 "${STATUSBAR:-dwmblocks}" && exit 1
+			respuesta=""
+			while [[ -z $respuesta || $respuesta = "Preguntar de nuevo" ]]; do
+			respuesta=$(printf "Preguntar de nuevo\nDescansar 🚶\nSeguir trabajando\nParar y salir" | dmenu -c -l 4 -i -p "🍅 Fin 🍅")
+			done
+			[[ $respuesta = "Seguir trabajando" ]] && echo -e "retomar\n$rondas" > $potatofile && pkill -RTMIN+28 "${STATUSBAR:-dwmblocks}" && exit 1
+			[[ $respuesta = "Parar y salir" ]] && echo "" > $potatofile && pkill -RTMIN+28 "${STATUSBAR:-dwmblocks}" && exit 1
 		fi
 	fi
 
@@ -84,14 +86,18 @@ do
 		pkill -RTMIN+28 "${STATUSBAR:-dwmblocks}"
 		sleep 1m
 	done
+
 	! $MUTE && play_notification
 
 	if $INTERACTIVE; then
 		read -d '' -t 0.001
 		echo -e "\a"
 		## TODO: respuesta para añadir tiempo reescribiendo las variables de work y rest
-		respuesta=$(printf "Trabajar\nSeguir descansando\nParar" | dmenu -i -p "💤 acabado")
+		respuesta=""
+		while [[ -z $respuesta || $respuesta = "Preguntar de nuevo" ]]; do
+		respuesta=$(printf "Preguntar de nuevo\nTrabajar 🍅\nSeguir descansando\nParar y salir" | dmenu -c -l 4 -i -p "💤 Fin 💤")
+		done
 		[[ $respuesta = "Seguir descansando"  || -z $respuesta ]] && echo $rondas > $potatofile && pkill -RTMIN+28 "${STATUSBAR:-dwmblocks}" && exit 1
-		[[ $respuesta = "Parar" ]] && echo "" > $potatofile && pkill -RTMIN+28 "${STATUSBAR:-dwmblocks}" && exit 1
+		[[ $respuesta = "Parar y salir" ]] && echo "" > $potatofile && pkill -RTMIN+28 "${STATUSBAR:-dwmblocks}" && exit 1
 	fi
 done

@@ -1,5 +1,7 @@
 # Wyrd run-configuration file
 
+set default_zoom="1"
+
 # command for the Remind executable
 set remind_command="remind"
 # the default reminder file or directory to display
@@ -27,6 +29,9 @@ set template1="REM %wdayname% MSG "
 set template2="REM %mday% AT %hour%:%min% DURATION 1:00 MSG "
 set template3="REM %mday% MSG "
 
+set template4="REM %wdayname% AT %hour%:%min% DURATION 1:00 TAG noweight SPECIAL COLOR 255 255 255 " #plan horario
+set template5="OMIT %monname% %mday% %year% " # vacaciones
+
 
 # algorithm to use for determining busy level
 # "1" -> count the number of reminders in each day
@@ -38,10 +43,10 @@ set untimed_duration="60"
 # if busy_algorithm="1", number of reminders per day allowed for each calendar
 # colorization level; if busy_algorithm="2", use number of hours of reminders
 # per day
-set busy_level1="0"   # no hay nada que hacer
-set busy_level2="5"   # hay algo que hacer
-set busy_level3="6"   # día horario
-set busy_level4="9"   # día horario + tarea
+set busy_level1="0"
+set busy_level2="1"
+set busy_level3="2"
+set busy_level4="3"
                       # (everything else is level3 color, bold)
 
 # set up the colors
@@ -50,8 +55,8 @@ color timed_default      white black
 color timed_current      white red
 color timed_reminder1    white blue
 color timed_reminder2    white blue
-color timed_reminder3    white green
-color timed_reminder4    yellow magenta
+color timed_reminder3    white blue
+color timed_reminder4    white blue
 color untimed_reminder   green black
 color timed_date         cyan black
 color selection_info     white black
@@ -77,7 +82,7 @@ set description_12_hour="false"
 
 # whether or not to keep the cursor centered when scrolling through timed
 # reminders
-set center_cursor="true"
+set center_cursor="false"
 
 # date syntax for the 'go to date' command can be big or little endian
 set goto_big_endian="true"
@@ -146,8 +151,10 @@ bind "u"                 new_untimed
 bind "U"                 new_untimed_dialog
 bind "w"                 new_template0
 bind "W"                 new_template1
-bind "m"                 new_template2
-bind "M"                 new_template3
+# bind "m"                 new_template2
+# bind "M"                 new_template3
+bind "a"                 new_template4
+bind "f"                 new_template5
 bind "n"                 search_next
 bind "/"                 begin_search
 bind "<tab>"             next_reminder

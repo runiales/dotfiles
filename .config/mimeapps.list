@@ -24,9 +24,11 @@ application/x-extension-shtml=firefox.desktop
 application/xhtml+xml=firefox.desktop
 application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
-x-scheme-handler/tg=userapp-Telegram Desktop-IVXCS1.desktop
+x-scheme-handler/tg=org.telegram.desktop.desktop
 x-scheme-handler/discord-610508934456934412=discord-610508934456934412.desktop
 x-scheme-handler/msteams=teams.desktop
+x-scheme-handler/steam=steam.desktop;
+x-scheme-handler/tonsite=org.telegram.desktop.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
@@ -40,4 +42,5 @@ application/x-extension-shtml=firefox.desktop;
 application/xhtml+xml=firefox.desktop;
 application/x-extension-xhtml=firefox.desktop;
 application/x-extension-xht=firefox.desktop;
-x-scheme-handler/tg=userapp-Telegram Desktop-Y662X0.desktop;userapp-Telegram Desktop-IVXCS1.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-Y662X0.desktop;userapp-Telegram Desktop-IVXCS1.desktop;userapp-Telegram Desktop-AOI6V1.desktop;org.telegram.desktop.desktop;
+x-scheme-handler/tonsite=org.telegram.desktop.desktop;

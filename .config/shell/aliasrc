@@ -34,7 +34,7 @@ alias \
 	tt="taskwarrior-tui" \
 	ttc="taskwarrior-tui -r completed" \
 	tts="task timesheet" \
-	K="klick -P -i -s 3" \
+	K="klick -P -i -s 3 -e -v 0.1" \
 	z="zathura"
 
 alias \
@@ -46,12 +46,12 @@ alias \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc" \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
 	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \
-	yta='youtube-dl -x --audio-format mp3 -f bestaudio -o "%(title)s.%(ext)s" --add-metadata'\
+	yta='yt-dlp -x --audio-format mp3 -f bestaudio -o "%(title)s.%(ext)s" --add-metadata'\
 	yt='ytfzf -t'\
 	bca='mpv --start=0:00 ~/Documentos/Biblioteca/Idiomas/chino/defrancis\ audio/b/bc4.mp3'\
 	bcra='mpv --start=3:15 ~/Documentos/Biblioteca/Idiomas/chino/defrancis\ audio/b/bcr01.mp3'\
 	b='echo -e "enter brightness:\n"; read val; xrandr  --output HDMI2 --brightness "${val}"'\
-	Pg="rsync -rtvzP --delete ~/.local/share/pg/ cipriano.es:/var/www/cipriano"\
+	Pg="rsync -rtvzLP --delete ~/.local/share/pg/ cipriano.es:/var/www/cipriano"\
 	Jpc="rsync -aP ~/pg/ root@192.168.1.140:/var/www/cipriano/"\
 	bib="nvim $BIB"\
 	wpj='wol 00:26:22:f0:24:9b'\
@@ -61,5 +61,14 @@ alias \
 	tfm='cd /home/runiales/Documentos/Estudios/Facultad/maes/tfm/ && nvim cipriano_tfm.tex'\
 	pfm='cd /home/runiales/Documentos/Facultad/Máster/Segundo_Semestre/TFM/presentación && nvim b.tex'\
 	fb='B && z "$(fzf)"'\
+	fbo='B && okular "$(fzf)"'\
+	zo='d && z "$(fzf)"'\
 	T='nvim "$(find /home/runiales/Documentos/Trabajo/Oposiciones/temas | grep tex | fzf)"'\
-	llat='zathura ${XDG_DOCUMENTS_DIR:-$HOME/Documentos}/Biblioteca/Lantiguas/latín/lingualat.pdf'
+	pds='lowriter /home/runiales/Documentos/Trabajo/Oposiciones/2023/sandra/PROGRAMACIÓN.odt'\
+	# pd='nvim /home/runiales/Documentos/Trabajo/Oposiciones/pd/ays.tex'\
+	ud='cd /home/runiales/Documentos/Trabajo/Oposiciones/pd && nvim "$(find ud | grep tex | fzf)"'\
+	llat='zathura ${XDG_DOCUMENTS_DIR:-$HOME/Documentos}/Biblioteca/Lantiguas/latín/lingualat.pdf'\
+	sandra='remind -cl -b1 -m -@ .config/tareas/horarioSan.rem'\
+	sube='subdl -i --lang=spa'\
+	tlp='timelineproject'\
+	horario='zathura ${XDG_DOCUMENTS_DIR:-$HOME/Documentos}/Trabajo/cig/horario\ bajas.pdf'

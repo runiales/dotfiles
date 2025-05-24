@@ -34,3 +34,4 @@ Mn	$XDG_DOCUMENTS_DIR/Plantillas/t.mscz
 Hn	$XDG_DOCUMENTS_DIR/Plantillas/a.html
 Wn	$XDG_DOCUMENTS_DIR/Plantillas/a.odt
 Lg	$XDG_DOCUMENTS_DIR/Plantillas/t.ly
+bm	${XDG_DATA_HOME:-$HOME/.local/share}/listamarcadores

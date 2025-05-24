@@ -2,7 +2,8 @@
 
 cd $HOME
 
-hfiles=".bashrc .xprofile .wyrdrc .xinitrc .ssh .zprofile .jackdrc"
+hfiles=".bashrc .xprofile .wyrdrc .xinitrc .ssh .zprofile .jackdrc
+	.gnupg/gpg-agent.conf"
 personal="Documentos Imágenes Música Vídeos"
 
 fireprofile=".mozilla/firefox/$(ls -t .mozilla/firefox/ | grep default-release | head -n 1)"
@@ -21,6 +22,7 @@ cfiles=".config/calcurse
 	.config/nvim
 	.config/pulse
 	.config/shell
+	.config/mutt
 	.config/sxiv
 	.config/tareas
 	.config/wget
@@ -46,6 +48,7 @@ orig="$hfiles $personal $firefox $cfiles $progs $sfiles"
 
 jfuera="root@sj:/home/runiales/cs/"
 jcasa="root@db:/home/runiales/cs/"
+rp="runiales@rp:/home/runiales/cs/"
 disco="/mnt/Disco/cseguridad/"
 
 show_help() {
@@ -67,46 +70,57 @@ while getopts "rtdho:" o; do case "${o}" in
 	t) task=true ;;
 	d) delete="--delete-after" ;;
 	r) restaurar=true ;;
-	h|\?) show_help	exit 1 ;;
+	h|\?) show_help	; exit 1 ;;
 esac done
+
+# confirma borrar
+
+if [[ ! -z $delete ]]; then
+	echo "¿De verdad quieres usar la opción --delete-after? [y/N]"
+	read -r confirmdelete
+	! echo "$confirmdelete" | grep -iq "^y$" && echo "Cancelado." && exit 1
+fi
 
 if $restaurar; then
 	if $task; then
 		echo "Fuente:"
-		remoto=$(printf "$jfuera\n$jcasa\n$disco" | fzf)
+		remoto=$(printf "$jfuera\n$jcasa\n$disco\n$rp" | fzf)
 		[[ -z $remoto ]] && echo "Cancelado. No se eligió ninguna fuente." && exit 1
 		remoto="$remoto/./.config/tareas"
-		rsync -aP --update $opcion $remoto $HOME/.config && notify-send "Tareas locales actualizadas con éxito" || (notify-send "Hubo un error durante la actualización de las tareas locales" && exit 0)
+		rsync -av --partial --update --info=progress2 --stats $opcion $remoto $HOME/.config && notify-send "Tareas locales actualizadas con éxito" || (notify-send "Hubo un error durante la actualización de las tareas locales" && exit 0)
 		exit 1
 	fi
 	echo "Fuente:"
-	remoto=$(printf "$jfuera\n$jcasa\n$disco" | fzf)
+	remoto=$(printf "$jfuera\n$jcasa\n$disco\n$rp" | fzf)
 	[[ -z $remoto ]] && echo "Cancelado. No se eligió ninguna fuente." && exit 1
 
-	echo "rsync -aR $opcion $remoto $HOME"
+	echo "rsync -av --partial --info=progress2 --stats $opcion $remoto $HOME"
 	echo "¿Restaurar? [y/N]"
 	read -r confirm
 	! echo "$confirm" | grep -iq "^y$" && echo "Cancelado." && exit 1
 
 	notify-send "Restaurando copia de seguridad"
-	rsync -aP $delete $opcion $remoto $HOME && notify-send "Copia de seguridad restaurada con éxito" || (notify-send "Hubo un error durante la copia de seguidad" && exit 0)
+	rsync -av --partial --info=progress2 --stats $delete $opcion $remoto $HOME && notify-send "Copia de seguridad restaurada con éxito" || (notify-send "Hubo un error durante la copia de seguidad" && exit 0)
 	exit 1
 fi
 
 if $task; then
 	echo "Destino:"
-	remoto=$(printf "$jfuera\n$jcasa\n$disco" | fzf)
+	remoto=$(printf "$jfuera\n$jcasa\n$disco\n$rp" | fzf)
 	[[ -z $remoto ]] && echo "Cancelado. No se eligió ningún destino." && exit 1
 	orig=".config/tareas"
-	rsync -aP --update $opcion $orig $remoto/.config && notify-send "Tareas remotas actualizadas con éxito" || (notify-send "Hubo un error durante la actualización de las tareas remotas" && exit 0)
+	rsync -av --partial --update --info=progress2 --stats $opcion $orig $remoto/.config && notify-send "Tareas remotas actualizadas con éxito" || (notify-send "Hubo un error durante la actualización de las tareas remotas" && exit 0)
 	exit 1
 fi
 
-# Copia normal
+
+# elige destino
 
 echo "Destino:"
-remoto=$(printf "$jfuera\n$jcasa\n$disco" | fzf)
+remoto=$(printf "$jfuera\n$jcasa\n$disco\n$rp" | fzf)
 [[ -z $remoto ]] && echo "Cancelado. No se eligió ningún destino." && exit 1
 
+# copia
+
 notify-send "Copia de seguridad en proceso"
-rsync -aRP $delete $update $opcion $orig $remoto && notify-send "Copia de seguridad terminada con éxito" || (notify-send "Hubo un error durante la copia de seguidad" && exit 0)
+rsync -aRv --partial --info=progress2 --stats $delete $update $opcion $orig $remoto && notify-send "Copia de seguridad terminada con éxito" || (notify-send "Hubo un error durante la copia de seguidad" && exit 0)

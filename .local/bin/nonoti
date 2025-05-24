@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# TODO: copiar para no wifi
+
 [ $(dunstctl is-paused) = "false" ] && notify-send -t 999 "Desactivando notificaciones 🦧" && sleep 1
 
 dunstctl set-paused toggle

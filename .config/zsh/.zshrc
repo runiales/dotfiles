@@ -18,6 +18,7 @@ bindkey '^R' history-incremental-search-backward
 
 # Basic auto/tab complete:
 autoload -U compinit
+zstyle ':completion:*' completer _expand_alias _complete _ignored
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit

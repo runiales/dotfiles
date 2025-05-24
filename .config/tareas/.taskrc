@@ -29,7 +29,9 @@ include /usr/share/doc/task/rc/dark-256.theme
 #include /usr/share/doc/task/rc/solarized-light-256.theme
 #include /usr/share/doc/task/rc/no-color.theme
 
-context.trabajo=+opo or +mas or +tra
+context.cig=+cig
+context.oposiciones=+opo
+context.trabajo=+opo or +mas or +tra or +cig
 context.estudio=+lit or +fil or +chi or +lat or +rel or +gri
 context.creativo=+mus or +web
 context.técnico=+tec or +cert
@@ -46,6 +48,7 @@ calendar.details.report=next
 report.next.filter=status:pending -WAITING
 report.next.columns=id,start.age,project,description.count,wait.remaining,scheduled.relative,due.relative,depends,priority,urgency
 report.next.labels=ID,Active,Project,Description,Wait,Sch,Due,Deps,P,Urg
+recurrence.limit=2
 #news.version=2.6.0
 
 #uda.taskwarrior-tui.selection.indicator=•

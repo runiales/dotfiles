@@ -1,27 +1,41 @@
 #!/bin/sh
 
-pdir="${XDG_DATA_HOME:-$HOME/.local/share}/plantillas/presentacion/"
-plantilla="${XDG_DATA_HOME:-$HOME/.local/share}/plantillas/presentacion/tec"
-pfil="${XDG_DATA_HOME:-$HOME/.local/share}/plantillas/presentacion/fil"
-cv="/home/runiales/Documentos/Documentación/cvs/Español/profe/Cipriano_CV.pdf"
+pdir="${XDG_DATA_HOME:-$HOME/.local/share}/plantillas/presentacion"
+cvdir="/home/runiales/Documentos/Documentación/cvs"
 
-while getopts ":iech" o; do case "${o}" in
+while getopts ":timfceh" o; do case "${o}" in
 	h) printf "Argumentos:\\n  -i: Modo interactivo\\n  -c: Correo electrónico\\n  -e: Editar plantillas\\n  -h: Muestra este mensaje\\n" && exit 1 ;;
-	c)
-		para=$(xclip -o) && echo "Preparando carta de presentación para $para"
-		printf "Nombre del centro para el correo: " ; read nombre
-		dir=$(mktemp -d)
-		sed s/"(<>)"/"$nombre"/ $pfil > $dir/correo
-		neomutt -e "source ~/.config/mutt/accounts/2-irpic.am@gmail.com.muttrc" -i $dir/correo -s "Profesor de Filosofía en varios idiomas" -E -a $cv -- $para && echo "Correo enviado" || echo "No se envió el correo" && exit 1;;
-	e) nvim $pdir/$(ls $pdir | fzf) && exit 1;;
-	i) echo $plantilla && exit 1;;
+	t) plantilla=$pdir/tec ; cv=$cvdir/Español/tecnico/CV.pdf ;;
+	i) cv=$cvdir/Inglés/CVen.pdf ;;
+	m) plantilla=$pdir/mus ; cv=$cvdir/Español/musical/CV.pdf ;;
+	# m) echo "¿Qué CV quieres?"
+	# 	cv=$cvdir$(ls $cvdir/Español/musical | fzf)
+	# 	;;
+	f) cv=$cvdir/Español/profe/Cipriano_CV.pdf ; plantilla=$pdir/fil ; asunto="Profesor de Filosofía en varios idiomas" ;;
+	c) [[ -z $plantilla ]] && echo "Elige una plantilla con -t, -i, -m o -f" && exit 0
+		printf "¿Cómo se llama la empresa? " ; read empresa
+		sed s/"(<>)"/"$empresa"/ $plantilla | xclip -sel clip
+		echo "Plantilla copiada al portapapeles." && exit 1 ;;
+	e) echo "¿Qué plantilla quieres editar?"
+		nvim $pdir/$(ls $pdir | fzf) && exit 1;;
 	*) printf "Opción no válida: -%s\\n" "$OPTARG" && exit 1 ;;
 esac done
 
-if [ -z $1 ]; then
-	echo "¿Cómo se llama la empresa?"
-	read empresa
-	sed s/"(<>)"/"$empresa"/ $plantilla | xclip -sel clip
-else
-	sed s/"(<>)"/"$(echo $@)"/ $plantilla | xclip -sel clip
+
+direccion="$(xclip -o)"
+echo "Portapapeles: $direccion"
+read -p "¿Usar esta dirección? (S/n) " -n 1 -r
+if [[ $REPLY =~ ^[Nn]$ ]]
+then
+echo
+printf "Correo de destino: " ; read direccion
 fi
+
+printf "Nombre del centro para el correo: " ; read nombre
+[[ -z $plantilla ]] && echo "¿Qué plantilla quieres?" && plantilla=$pdir/$(ls $pdir | fzf)
+[[ -z $asunto ]] && printf "Asunto del correo: " && read asunto
+
+
+dir=$(mktemp -d)
+sed s/"(<>)"/"$nombre"/ $plantilla > $dir/correo
+neomutt -e "source ~/.config/mutt/accounts/irpic.am@gmail.com.muttrc" -i $dir/correo -s "$asunto" -E -a $cv -- $direccion && echo "Correo enviado" || echo "No se envió el correo" && exit 1

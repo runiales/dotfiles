@@ -2,7 +2,7 @@
     monitor = 0
     follow = keyboard
     width = 370
-    height = 350
+        height = (0, 300)
     offset = 0x19
     padding = 2
     horizontal_padding = 2
@@ -24,4 +24,5 @@
     foreground = "#ebdbb2"
     background = "#282828"
     frame_color = "#fabd2f"
+    origin = center
     timeout = 10

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+ctemas=/home/runiales/Documentos/Trabajo/Oposiciones/temas
+pgtemas=/home/runiales/.local/share/pg/filosofia/oposiciones/temas
+
+cd $ctemas
+tema=$(find -iname '*.tex' -exec dirname {} \; | fzf)
+
+ln -s $ctemas/$tema/$tema.pdf $pgtemas/$tema.pdf

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+sibelius="/home/runiales/.local/share/wineprefixes/default/drive_c/Program Files (x86)/Avid/Sibelius 7.5/Sibelius.exe"
+
+wine "$sibelius"

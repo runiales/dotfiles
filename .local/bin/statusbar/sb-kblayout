@@ -1,0 +1,25 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+        1) kblayouts ;;
+	2) setsid -f newsup >/dev/null exit ;;
+        3) notify-send "⌨️ Teclado griego" "
+Acentos:
+	Agudo: ñ+α=ά
+	Grave: AltGr+´+α=ὰ
+	Circunflejo: AltGr+\`+α=ᾶ
+	Diéresis: Mays+ñ+υ=ϋ
+
+Espíritus:
+	Suave: AltGr+mayus+ñ+α=ἀ
+	Áspero: AltGr+Mayus+´+α=ἁ
+
+Macrón: AltGr+Mayus+\`+α=ᾱ
+Breve: ΑltGr+Mayus+++α=ᾰ
+Suscrito: AltGr+++α=ᾳ
+
+- Click izquierdo: cambia layout" ;;
+	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+ cat /tmp/kblayout 2>/dev/null

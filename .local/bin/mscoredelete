@@ -1,0 +1,3 @@
+#!/bin/sh
+
+mscore $1 ; rmdir -p ~/Documents/MuseScore4/*

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "Plantilla a copiar:"
+	plantilla="$(find $XDG_DATA_HOME/plantillas -type f | grep -Ev '/calendar/|/presentacion/|\.git' | fzf)" &&
+	eval cp $plantilla .

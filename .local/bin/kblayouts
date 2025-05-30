@@ -1,0 +1,5 @@
+#!/bin/sh
+
+setxkbmap -query | grep -q 'gr' && (setxkbmap es && echo "" > /tmp/kblayout) || (setxkbmap gr,es && echo "🦚 Ελληνικό 🦚" > /tmp/kblayout)
+
+pkill -RTMIN+2 "${STATUSBAR:-dwmblocks}"

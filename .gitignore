@@ -1,0 +1,15 @@
+*
+!.gitignore
+!.config
+!.config/x11/*
+!.gnupg/readme
+!.gnupg/gpg-agent.conf
+!.local
+!.local/bin/
+!.local/bin/*
+!.local/bin/statusbar/*
+!.Xresources
+!.bashrc
+!.xinitrc
+!.zprofile
+.local/bin/statusbar/sb-music

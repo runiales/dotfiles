@@ -1,0 +1,16 @@
+#!/bin/sh
+
+cd /home/runiales/Documentos/Trabajo/Oposiciones/pd/ud/
+
+printf "Número: "
+read num
+
+mkdir $num
+
+cp /home/runiales/.local/share/plantillas/latex/ud.tex $num/ud$num.tex
+
+cd $num
+
+sed -i "s/roUD}{(<>)/roUD}{$num/g" ud$num.tex
+
+nvim ud$num.tex

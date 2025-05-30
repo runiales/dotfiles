@@ -1,0 +1,9 @@
+#!/bin/sh
+
+ejercicios='~/Documentos/Estudios/informatica/1/fm/ejercicios.pdf'
+soluciones='~/Documentos/Estudios/informatica/1/fm/soluciones.pdf'
+teoria='~/Documentos/Estudios/informatica/1/fm/teoria.pdf'
+
+st -n ejercicios -e zathura $ejercicios &
+sleep 0.1 && zathura $teoria &
+sleep 0.1 && zathura $soluciones

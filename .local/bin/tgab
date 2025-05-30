@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd /home/runiales/Documentos/Trabajo/Transcripción/
+
+mpv --audio-display=no "$(file --mime-type * | grep -v midi | grep audio | sed 's/:.*//')" & $TERMINAL -e nvim *.ly

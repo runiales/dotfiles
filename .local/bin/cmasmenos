@@ -1,0 +1,3 @@
+#!/bin/sh
+
+wine /home/runiales/.local/share/wineprefixes/default/drive_c/users/Public/cmasmenos/ccUNED.exe

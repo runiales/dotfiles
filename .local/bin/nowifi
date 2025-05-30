@@ -1,0 +1,3 @@
+#!/bin/sh
+
+( nmcli connection down MIWIFI_5G_n9ti && notify-send "📡Apagando WIFI📡")|| (notify-send "📡Encendiendo WIFI📡" && nmcli connection up MIWIFI_5G_n9ti)

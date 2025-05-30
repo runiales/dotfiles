@@ -1,0 +1,25 @@
+#!/bin/sh
+
+cd /home/runiales/Documentos/Trabajo/Oposiciones/temas
+
+printf "Número: "
+read num
+
+printf "Nombre: "
+read nombre
+
+printf "Nombre abreviado (sin número): "
+read name
+
+tema=$num$name
+
+mkdir $tema
+
+cp /home/runiales/.local/share/plantillas/latex/tema.tex $tema/$tema.tex
+
+cd $tema
+
+sed -i s/NÚMERO/$num/g $tema.tex
+sed -i "s/NOMBRE/$nombre/g" $tema.tex
+
+nvim $tema.tex

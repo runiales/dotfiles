@@ -1,0 +1,5 @@
+#!/bin/sh
+
+trabajo="/home/runiales/Documentos/Trabajo/cig/"
+
+cd $trabajo ; nvim index.md

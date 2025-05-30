@@ -1,0 +1,11 @@
+#!/bin/sh
+
+listamarcadores=/home/runiales/.local/share/listamarcadores
+marcador="$(xclip -o)"
+
+if grep -q "^$marcador$" "$listamarcadores"; then
+        notify-send "La selección ya está en la lista de marcadores."
+else
+        echo "$marcador" >> "$listamarcadores"
+        notify-send "Se ha añadido $marcador"
+fi

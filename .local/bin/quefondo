@@ -1,0 +1,5 @@
+#!/bin/sh
+
+bg="/home/runiales/.local/share/bg"
+
+notify-send $(readlink -f $bg | sed 's/\/.*\///')

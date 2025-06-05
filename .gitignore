@@ -23,8 +23,7 @@
 !.config/sxiv/exec/key-handler
 !.config/zathura/
 !.config/zathura/zathurarc
-!.config/zsh/
-!.config/zsh/*
+!.config/zsh/.zshrc
 !.config/pinentry/
 !.config/pinentry/preexec
 !.gnupg/

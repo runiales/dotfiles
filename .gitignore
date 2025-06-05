@@ -25,6 +25,8 @@
 !.config/zathura/zathurarc
 !.config/zsh/
 !.config/zsh/*
+!.config/pinentry/
+!.config/pinentry/preexec
 !.gnupg/
 !.gnupg/readme
 !.gnupg/gpg-agent.conf

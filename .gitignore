@@ -27,8 +27,8 @@
 !.config/pinentry/
 !.config/pinentry/preexec
 !.gnupg/
-!.gnupg/readme
-!.gnupg/gpg-agent.conf
+!.gnupg/private-keys-v1.d/
+!.gnupg/private-keys-v1.d/readme.md
 !.local
 !.local/bin/
 !.local/bin/*

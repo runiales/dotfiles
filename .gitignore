@@ -26,6 +26,8 @@
 !.config/zsh/.zshrc
 !.config/pinentry/
 !.config/pinentry/preexec
+!.config/fcitx5/
+!.config/fcitx5/profile
 !.gnupg/
 !.gnupg/private-keys-v1.d/
 !.gnupg/private-keys-v1.d/readme.md

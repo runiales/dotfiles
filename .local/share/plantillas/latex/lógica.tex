@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=black, citecolor=black]{hyperref}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{subcaption}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{txfonts}
+\usepackage{lmodern}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{wrapfig}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[linguistics]{forest}
+\usepackage{prooftrees}
+\usepackage{titlesec}
+\usepackage[rightcaption]{sidecap}
+\usepackage[backend=biber, style=apa]{biblatex}
+\addbibresource{~/Documentos/Biblioteca/bib.bib}
+\graphicspath{ {/home/runiales/.local/share/plantillas/latex/} {images/} }
+\pagestyle{fancy}
+\lhead{Máster en Lógica y F. de la Ciencia}
+\rhead{Cipriano Montes Aranda}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\DeclareMathSymbol{\strictif}{\mathrel}{symbolsC}{74}
+\renewcommand*{\b}{\Box}
+\renewcommand*{\d}{\Diamond}
+\renewcommand*{\si}{\rightarrow}
+\renewcommand*{\ssi}{\strictif}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows,calc}
+\usetikzlibrary{babel}
+\tikzset{modal/.style={>=stealth',shorten >=1pt,shorten <=1pt,auto,node distance=1.5cm,semithick},world/.style={circle,draw,minimum size=0.5cm,fill=gray!15},nworld/.style={square,draw,minimum size=0.5cm,fill=gray!15},point/.style={circle,draw,inner sep=0.5mm,fill=black},reflexive above/.style={->,loop,looseness=7,in=120,out=60},reflexive below/.style={->,loop,looseness=7,in=240,out=300},reflexive left/.style={->,loop,looseness=7,in=150,out=210},reflexive right/.style={->,loop,looseness=7,in=30,out=330}}
+\newtheorem*{theorem}{Teorema}
+\newtheorem*{lemma}{Lema}
+\newtheorem*{definition}{Definición}
+\newtheorem*{proof}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\titleformat*{\section}{\normalsize\bfseries}
+\titleformat*{\subsection}{\normalsize\bfseries}
+\setcounter{section}{(<>)}
+
+
+\begin{document}
+%\begin{center}
+%	\LARGE \textbf{(<>)}
+%\end{center}
+
+	\begin{figure}[h]
+		\begin{subfigure}{0.5\linewidth}
+		\includegraphics[height=1.7cm]{ugr.png}
+		\end{subfigure}
+		\begin{subfigure}{0.5\linewidth}
+
+		\small
+		\hfill (<>)
+
+		\hfill Prof.: (<>)
+
+		\hfill \today
+		\end{subfigure}
+	\end{figure}
+
+(<>)
+
+\end{document}

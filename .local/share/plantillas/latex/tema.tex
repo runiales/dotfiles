@@ -1,0 +1,110 @@
+\documentclass[12pt]{article}
+\usepackage[osf]{libertine}
+\usepackage{libertinust1math}
+\usepackage[T1]{fontenc}
+\usepackage{anyfontsize}
+\usepackage{setspace}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=black, citecolor=black]{hyperref}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage{ragged2e}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{shorttoc}
+\usepackage{moreenum}
+\usepackage[greek,german,french,spanish]{babel}
+\usepackage[backend=biber, citestyle=authortitle, bibstyle=philosophy-verbose]{biblatex}
+\addbibresource{~/Documentos/Biblioteca/bib.bib}
+\graphicspath{ {/home/runiales/.local/share/plantillas/latex/} {images/} }
+\pagestyle{fancy}
+\lhead{Tema NÚMERO}
+\rhead{NOMBRE}
+
+\titleformat*{\section}{\Large\center\scshape\bfseries}
+
+\renewcommand{\theparagraph}{\roman{paragraph}}
+\titleformat{\paragraph}[runin]{\filright}{}{.5em}{\makebox[1.5em]{\theparagraph. \hfill}\bfseries }[:]
+\titlespacing{\paragraph}{1pc}{1ex plus .1ex minus .2ex}{0.5pc}
+\titlecontents{paragraph}[7em]{}{\makebox[2em]{\thecontentslabel.\hfill}}{}{}
+
+\renewcommand{\thesubparagraph}{\greek{subparagraph}}
+\titleformat{\subparagraph}[runin]{\filright\scshape}{}{.5em}{\makebox[1.5em]{\textit{\thesubparagraph) \hfil}}}[:]
+\titlespacing{\subparagraph}{1pc}{1ex plus .1ex minus .2ex}{0.5pc}
+\titlecontents{subparagraph}[9em]{}{\makebox[1.5em]{\thecontentslabel.\hfill}}{}{}
+
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+\begin{document}
+\begin{titlepage}
+        \begin{center}
+                \vspace*{0.5cm}
+
+                \Huge
+		\textbf{\scshape Tema NÚMERO} % Número del tema
+
+                \vspace{0.5cm}
+                \LARGE
+		\textbf{NOMBRE}\\ % Título
+                \vfill
+
+                \Huge
+		{\fontsize{225pt}{45pt}\selectfont $\varphi$} % Imagen
+
+                \vfill
+                \large
+		Temario para Oposiciones de Filosofía\\
+
+                \vspace{0.25cm}
+		\normalsize
+		Revisado el \today~ a partir del tema de \\(<>) en TecnosZubia (22/23)\\ % Fuente
+
+                \vspace{0.75cm}
+		\Large
+                Cipriano Montes Aranda\\
+                \large
+                \href{mailto:info@cipriano.es}{info@cipriano.es} % correo
+ \end{center}
+\end{titlepage}
+
+\pagestyle{empty}
+
+\onehalfspace
+
+\shorttoc{Índice resumido}{3}
+
+\newpage
+
+\normalsize
+
+\pagestyle{fancy}
+
+(<>)
+
+\newpage
+
+\printbibliography
+
+\newpage
+
+\renewcommand*\contentsname{Índice detallado}
+\tableofcontents
+
+\newpage
+
+\pagestyle{empty}
+
+\begin{center}
+	\vspace*{\fill}
+		\Large
+		Más temas en\\
+                \large
+                \href{https://www.cipriano.es/filosofia/oposiciones}{www.cipriano.es/filosofia/oposiciones} % pagina
+	\vspace*{\fill}
+\end{center}
+
+\end{document}

@@ -49,7 +49,7 @@ orig="$hfiles $personal $firefox $cfiles $progs $sfiles"
 jfuera="root@sj:/home/runiales/cs/"
 jcasa="root@db:/home/runiales/cs/"
 rp="runiales@rp:/home/runiales/cs/"
-disco="/mnt/Disco/cseguridad/"
+disco="/media/usb/disco/cseguridad/"
 
 show_help() {
 	cat <<-END

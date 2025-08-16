@@ -7,3 +7,4 @@
 	1. gpg --import <pkey>
 3. Este paso no sé si es necesario:
 	1. gpg --edit-key <keyid> # trust # 5
+4. Password store en .local/share/password-store/

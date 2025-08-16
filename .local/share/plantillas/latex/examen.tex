@@ -1,0 +1,56 @@
+\documentclass{exam}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=black, citecolor=black]{hyperref}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage[backend=biber, style=apa]{biblatex}
+\addbibresource{~/Documentos/Biblioteca/bib.bib}
+% \graphicspath{ {/home/runiales/.local/share/plantillas/latex/} {images/} }
+
+\titleformat*{\section}{\normalsize\bfseries}
+
+\pointpoints{punto}{puntos}
+\bonuspointpoints{punto extra}{puntos extra}
+
+\totalformat{Pregunta \thequestion: \totalpoints puntos}
+
+\chqword{Pregunta}
+\chpgword{Página}
+\chpword{Puntos}
+\chbpword{Puntos extra}
+\chsword{Puntos obtenidos}
+\chtword{Total}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{center}
+	\fbox{\fbox{\parbox{3.5in}{\centering \large \textbf{(<>)}}}} %Título
+\end{center}
+
+\vspace{5mm}
+\makebox[0.75\textwidth]{Nombre y apellidos:\enspace\hrulefill}
+
+\vspace{5mm}
+\makebox[0.75\textwidth]{Curso y fecha:\enspace\hrulefill}
+
+\begin{questions}
+
+\question (<>)
+\vspace{\stretch{1}}
+
+\clearpage
+
+\question (<>)
+\begin{checkboxes}
+\choice (<>)
+\end{checkboxes}
+
+
+\end{questions}
+\clearpage
+
+\end{document}

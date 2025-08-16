@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=black, citecolor=black]{hyperref}
+\usepackage{setspace}
+%\usepackage{mathptmx}por si alguien lo quiere en tnroman
+\usepackage{subcaption}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{wrapfig}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage[backend=biber, style=apa]{biblatex}
+\addbibresource{~/Documentos/Biblioteca/bib.bib}
+\graphicspath{ {/home/runiales/.local/share/plantillas/latex/} {images/} }
+\pagestyle{fancy}
+\lhead{Grado en Ingeniería Informática}
+\rhead{Cipriano Montes Aranda}
+
+\titleformat*{\section}{\normalsize\bfseries}
+
+\begin{document}
+\begin{center}
+	\LARGE \textbf{(<>)}
+\end{center}
+
+	\begin{figure}[h]
+		\begin{subfigure}{0.4\linewidth}
+		\includegraphics[height=1.7cm]{uned.jpg}
+		\end{subfigure}
+		\begin{subfigure}{0.6\linewidth}
+
+		\small
+		\hfill (<>)
+
+		\hfill Prof.: (<>)
+
+		\hfill \today
+		\end{subfigure}
+	\end{figure}
+
+	\onehalfspace
+
+(<>)
+
+%\printbibliography
+
+\end{document}

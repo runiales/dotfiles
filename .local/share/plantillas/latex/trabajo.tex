@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+\usepackage{setspace}
+%\usepackage{mathptmx}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=black, citecolor=black]{hyperref}
+\usepackage{enumerate}
+\usepackage{ragged2e}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage[spanish]{babel}
+\usepackage[backend=biber, style=apa]{biblatex}
+\addbibresource{~/Documentos/Biblioteca/bib.bib}
+\graphicspath{ {/home/runiales/.local/share/plantillas/latex/} {images/} }
+\pagestyle{fancy}
+\lhead{(<>)}
+\rhead{Cipriano Montes Aranda}
+
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\normalsize\bfseries}
+
+\begin{document}
+\begin{titlepage}
+        \begin{center}
+                \vspace*{0.5cm}
+
+                \Huge
+		\textbf{(<>)}
+
+                \vspace{0.5cm}
+                \Large
+		(<>)\\
+                \vspace{2.5cm}
+                Cipriano Montes Aranda
+
+
+                %\vspace{0.5cm}
+                \large
+                \href{mailto:cmontes153@alumno.uned.es}{cmontes153@alumno.uned.es}
+
+                \large
+                \vfill
+		Asignatura: (<>)\\
+		Profesor: (<>)
+
+                \vspace{0.5cm}
+                \includegraphics[width=1in]{uned.jpg}\\
+		Grado en Ingeniería Informática\\
+                \today\\
+        \end{center}
+\end{titlepage}
+
+\pagestyle{empty}
+
+\onehalfspace
+
+\tableofcontents
+
+%\vfill
+%\hfill\small
+%Número de palabras:
+
+\newpage
+
+\normalsize
+
+\pagestyle{fancy}
+%\doublespace
+
+(<>)
+
+\newpage
+
+\printbibliography
+
+\end{document}

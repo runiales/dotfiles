@@ -50,6 +50,11 @@
 !.local/share/applications/rss.desktop
 !.local/share/applications/text.desktop
 !.local/share/applications/torrent.desktop
+!.local/share/applications/torrent.desktop
+!.local/share/plantillas/
+!.local/share/plantillas/*
+!.local/share/plantillas/latex/
+!.local/share/plantillas/latex/*
 !.Xresources
 !.bashrc
 !.xinitrc

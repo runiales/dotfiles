@@ -1,7 +1,5 @@
 #!/bin/sh
 
-ifinstalled transmission-qt transmission-cli || exit
-
 ! pidof transmission-daemon >/dev/null && transmission-daemon && notify-send "Starting torrent daemon..."
 
 transmission-qt -p 9091 ; pkill -RTMIN+7 "${STATUSBAR:-dwmblocks}"

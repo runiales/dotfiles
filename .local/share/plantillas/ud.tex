@@ -1,0 +1,296 @@
+\documentclass[12pt]{article}
+\usepackage[osf]{libertine}
+\usepackage{libertinust1math}
+\usepackage[T1]{fontenc}
+\usepackage{anyfontsize}
+\usepackage{setspace}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=black, citecolor=black]{hyperref}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage{ragged2e}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{shorttoc}
+\usepackage{moreenum}
+\usepackage[title, titletoc]{appendix}
+\usepackage[greek,german,french,spanish]{babel}
+\usepackage[backend=biber, citestyle=authortitle, bibstyle=philosophy-verbose]{biblatex}
+\addbibresource{~/Documentos/Biblioteca/bib.bib}
+\graphicspath{ {/home/runiales/.local/share/plantillas/latex/} {images/} }
+\pagestyle{fancy}
+\newcommand{\numeroUD}{(<>)}
+\newcommand{\tituloUD}{(<>)}
+\newcommand{\instr}{Instrucción 13/2022, de 23 de junio, de la Dirección General de Ordenación y Evaluación Educativa, por la que se establecen aspectos de organización y funcionamiento para los centros que impartan bachillerato para el curso 2022/2023}
+\lhead{Unidad Didáctica \numeroUD}
+\rhead{\tituloUD}
+
+\titleformat*{\section}{\Large\center\scshape\bfseries}
+
+\renewcommand{\theparagraph}{\roman{paragraph}}
+\titleformat{\paragraph}[runin]{\filright}{}{.5em}{\makebox[1.5em]{\theparagraph. \hfill}\bfseries }[:]
+\titlespacing{\paragraph}{1pc}{1ex plus .1ex minus .2ex}{0.5pc}
+\titlecontents{paragraph}[7em]{}{\makebox[2em]{\thecontentslabel.\hfill}}{}{}
+
+\renewcommand{\thesubparagraph}{\greek{subparagraph}}
+\titleformat{\subparagraph}[runin]{\filright\scshape}{}{.5em}{\makebox[1.5em]{\textit{\thesubparagraph) \hfil}}}[:]
+\titlespacing{\subparagraph}{1pc}{1ex plus .1ex minus .2ex}{0.5pc}
+\titlecontents{subparagraph}[9em]{}{\makebox[1.5em]{\thecontentslabel.\hfill}}{}{}
+
+\newenvironment{sesiones}
+{
+\renewcommand{\thesubsubsection}{\bfseries\scshape{Sesión} \arabic{subsubsection}}
+\titleformat{\subsubsection}[runin]{\filright}{}{.5em}{\makebox[4.5em]{\thesubsubsection. \hfill}\bfseries }[:]
+\titlespacing{\subsubsection}{1pc}{1ex plus .1ex minus .2ex}{0.5pc}
+\titlecontents{subsubsection}[46pt]{}{\makebox[4.5em]{\thecontentslabel.\hfill}}{}{}
+
+\titlecontents*{paragraph}[85pt]
+{\small\itshape}{}{}
+{}[ \textbullet\ ][.]
+\titlecontents*{subparagraph}[0pt]
+{\upshape}{}{}
+{}[ (][, ][)]
+}
+{%alcerrar
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+\titlespacing{\subsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlecontents{subsubsection}[46pt]{}{\makebox[38pt]{\thecontentslabel.\hfill}}{}{}
+
+% \titlecontents{paragraph}[7em]{}{\makebox[2em]{\thecontentslabel.\hfill}}{}{}
+% \titlecontents{subparagraph}[9em]{}{\makebox[1.5em]{\thecontentslabel.\hfill}}{}{}
+}
+
+% \setmainfont{Times New Roman}
+\addto\captionsspanish{%
+  \renewcommand\appendixname{Anexo}
+  \renewcommand\appendixpagename{Anexos}
+  \renewcommand\appendixtocname{ANEXOS}
+}
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+
+
+\begin{document}
+\begin{titlepage}
+        \begin{center}
+                \vspace*{0.5cm}
+
+                \Huge
+		\textbf{\scshape Unidad Didáctica \numeroUD}
+
+                \vspace{0.5cm}
+                \LARGE
+		\textbf{\tituloUD}\\
+                \vfill
+
+                \Huge
+		{\fontsize{225pt}{45pt}\selectfont $\varphi$} % Imagen
+
+                \vfill
+                \large
+		Programada para la asignatura de\\
+		Antropología y Sociología (1º de Bachillerato)\\
+
+                \vspace{0.25cm}
+		\normalsize
+		Revisada el \today\\ % Fuente
+
+                \vspace{0.75cm}
+		\Large
+                Cipriano Montes Aranda\\
+                \large
+                \href{mailto:info@cipriano.es}{info@cipriano.es}\\ % correo
+		\normalsize
+                \vspace{0.2cm}
+		Cuerpo de Profesores de Enseñanza Secundaria (590)\\
+		Especialidad: Filosofía (001)
+ \end{center}
+\end{titlepage}
+
+\pagestyle{empty}
+
+\onehalfspace
+%\shorttoc{Índice esquemático}{3}
+\tableofcontents % parece que hay que ejecutar esto para que se actualice el anterior
+
+\newpage
+
+\normalsize
+
+\pagestyle{fancy}
+
+\section{Justificación}
+
+(<>)
+
+\section{Contexto}
+
+\subsection{Sociocultural}
+
+Centro de alto nivel adquisitivo. Demografía. Localización. Edad.
+
+(<>)
+
+\subsection{Académico}
+
+Primero de bach, grupo de ciencias. Aspectos de interés.
+
+(<>)
+
+\subsection{Legal}
+
+\subsubsection{Objetivos de etapa}
+
+(<>)
+
+\subsubsection{Mapa curricular}
+
+(<>)%especificar qué competencias específicas se van a trabajar ene esta unidad.
+
+Así, correlacionamos las competencias específicas previamente mencionadas con sus criterios de evaluación para cada una de nuestras situaciones de aprendizaje. Como vemos, cada competencia específica incluye sus descriptores operativos correspondientes. Sucede de forma análoga con los criterios de evaluación y sus saberes básicos. En este sentido se sigue al pie de la letra la \instr.
+
+\begin{center}
+\begin{tabular}{ |m{5cm}|m{5cm}|m{2cm}| }
+ \hline
+	Competencias específicas (descriptores operativos) & Criterios de evaluación (saberes básicos) & Situación de aprendizaje + rúbrica\\
+ \hline
+\multirow{2}{4em}{(<>)}	& (<>)			& (<>) \\
+			& (<>)			& (<>) \\
+(<>)			& (<>)			& (<>) \\
+(<>)			& (<>)			& (<>) \\
+(<>)			& (<>)			& (<>) \\
+ \hline
+\end{tabular}
+\end{center}
+
+(<>)
+
+\section{Secuencia didáctica}
+
+\subsection{Descripción del producto final}
+
+(<>)
+
+\subsection{Metodología}
+
+\subsubsection{Temporalización}
+
+(<>)
+
+\subsubsection{Tecnologías}
+
+(<>)
+
+\subsubsection{Interdisciplinariedad}
+
+(<>)
+
+\subsubsection{Incorporación de referencias y peculiaridades de Andalucía}
+
+(<>)
+
+\subsection{Desarrollo de las sesiones}
+
+(<>)
+
+
+\begin{sesiones}
+
+\subsubsection{(<>)} %Título de la sesión 1
+
+\paragraph{Actividades} (<>)
+
+\subparagraph{Motivación} (<>)
+
+\subparagraph{Evaluación inicial} (<>)
+
+\paragraph{Atención a la diversidad} (<>)
+
+\subsubsection{(<>)} %Título de la sesión 2
+
+\paragraph{Actividades} (<>)
+
+\paragraph{Atención a la diversidad} (<>)
+
+\subsubsection{(<>)} %Título de la sesión 3
+
+\paragraph{Actividades} (<>)
+
+\paragraph{Atención a la diversidad} (<>)
+
+\subsubsection{(<>)} %Título de la sesión 4
+
+\paragraph{Actividades} (<>)
+
+\paragraph{Atención a la diversidad} (<>)
+
+\subsubsection{(<>)} %Título de la sesión 5
+
+\paragraph{Actividades} (<>)
+
+\paragraph{Atención a la diversidad} (<>)
+
+\subsubsection{(<>)} %Título de la sesión 6
+
+\paragraph{Actividades} (<>)
+
+\paragraph{Atención a la diversidad} (<>)
+
+\subsubsection{(<>)} %Título de la sesión 7
+
+\paragraph{Actividades} (<>)
+
+\subparagraph{Autoevaluación} (<>)
+
+\paragraph{Atención a la diversidad} (<>)
+
+%sesión 8?
+
+\end{sesiones}
+
+\section{Evaluación}
+
+\subsection{Instrumentos}
+
+(<>)
+
+\subsection{Desarrollo}
+
+\subsubsection{Evaluación continua} (<>)
+
+\subsubsection{Plan de recuperación} (<>)
+
+\newpage
+
+\printbibliography[title={Bibliografía}]
+\addcontentsline{toc}{section}{Bibliografía}%Including it as a chapter
+
+\cleardoublepage
+
+\begin{appendices}
+\renewcommand{\thesection}{\Roman{section}}
+\titleformat*{\section}{\Large\scshape\bfseries}
+\section{Rúbricas e indicadores de logro}
+\subsection{(<>)}%Título de la rúbrica
+
+	(<>)
+
+\section{Especificación del marco legal}
+\subsection{Objetivos}
+
+	(<>)
+
+\subsection{Contenidos transversales}
+
+	(<>)
+
+\end{appendices}
+
+
+\end{document}

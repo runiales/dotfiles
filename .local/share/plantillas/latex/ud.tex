@@ -1,0 +1,398 @@
+\documentclass[12pt]{article}
+\usepackage[osf]{libertine}
+\usepackage{libertinust1math}
+\usepackage[T1]{fontenc}
+\usepackage{anyfontsize}
+\usepackage{setspace}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=black, citecolor=black]{hyperref}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[inline]{enumitem}
+\usepackage{ragged2e}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{tabularray}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{shorttoc}
+\usepackage{moreenum}
+\usepackage[title, titletoc]{appendix}
+\usepackage[greek,german,french,spanish]{babel}
+\usepackage[backend=biber, citestyle=authortitle, bibstyle=philosophy-verbose]{biblatex}
+\addbibresource{~/Documentos/Biblioteca/bib.bib}
+\graphicspath{ {/home/runiales/.local/share/plantillas/latex/} {images/} }
+\pagestyle{fancy}
+\newcommand{\numeroUD}{(<>)}
+\newcommand{\tituloUD}{(<>)}
+\newcommand{\comdes}{\textbf{(<>)}: (<>) ((<>))}
+\newcommand{\crisabi}{\textbf{(<>)}: (<>) ((<>))}
+\newcommand{\crisabii}{\textbf{(<>)}: (<>) ((<>))}
+\newcommand{\dia}{Rúbrica para diálogo en clase (RD)}
+\newcommand{\pre}{Rúbrica para presentación oral (RO)}
+\newcommand{\exa}{Prueba escrita (P)}
+\newcommand{\com}{Rúbrica para comentario (RC)}
+\newcommand{\red}{Rúbrica para redacción guiada por conceptos (RR)}
+\newcommand{\est}{Rúbrica para estudio (RE)}
+\newcommand{\instr}{Instrucción 13/2022, de 23 de junio, de la Dirección General de Ordenación y Evaluación Educativa, por la que se establecen aspectos de organización y funcionamiento para los centros que impartan bachillerato para el curso 2022/2023}
+\lhead{Unidad Didáctica \numeroUD}
+\rhead{\tituloUD}
+
+\titleformat*{\section}{\Large\center\scshape\bfseries}
+
+\renewcommand{\theparagraph}{\roman{paragraph}}
+\titleformat{\paragraph}[runin]{\filright}{}{.5em}{\bfseries}[:]
+\titlespacing{\paragraph}{1pc}{1ex plus .1ex minus .2ex}{0.5pc}
+\titlecontents{paragraph}[7em]{}{\makebox[2em]{\thecontentslabel.\hfill}}{}{}
+
+\renewcommand{\thesubparagraph}{\greek{subparagraph}}
+\titleformat{\subparagraph}[runin]{\filright}{}{.5em}{\makebox[1.5em]{\textit{\thesubparagraph) \hfil}}}[ ---]
+\titlespacing{\subparagraph}{1pc}{1ex plus .1ex minus .2ex}{0.5pc}
+\titlecontents{subparagraph}[9em]{}{\makebox[1.5em]{\thecontentslabel.\hfill}}{}{}
+
+\titlecontents*{paragraph}[85pt]
+{\upshape}{}{}
+{}[ \textbullet\ ][.]
+\titlecontents*{subparagraph}[85pt]
+{\small\itshape}{}{}
+{}[][, ][]
+
+% \setmainfont{Times New Roman}
+\addto\captionsspanish{%
+  \renewcommand\appendixname{Anexo}
+  \renewcommand\appendixpagename{Anexos}
+  \renewcommand\appendixtocname{ANEXOS}
+}
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+
+
+\begin{document}
+\begin{titlepage}
+        \begin{center}
+                \vspace*{0.5cm}
+
+                \Huge
+		\textbf{\scshape Unidad Didáctica \numeroUD}
+
+                \vspace{0.5cm}
+                \LARGE
+		\textbf{\tituloUD}\\
+                \vfill
+
+                \Huge
+		{\fontsize{225pt}{45pt}\selectfont $\varphi$} % Imagen
+
+                \vfill
+                \large
+		Programada para la asignatura de\\
+		Antropología y Sociología (1º de Bachillerato)\\
+
+                \vspace{0.25cm}
+		\normalsize
+		Revisada el \today\\ % Fuente
+
+                \vspace{0.75cm}
+		\Large
+                Cipriano Montes Aranda\\
+                \large
+                \href{mailto:info@cipriano.es}{info@cipriano.es}\\ % correo
+		\normalsize
+                \vspace{0.2cm}
+		Cuerpo de Profesores de Enseñanza Secundaria (590)\\
+		Especialidad: Filosofía (001)
+ \end{center}
+\end{titlepage}
+
+\pagestyle{empty}
+
+\newpage
+\mbox{}
+\newpage
+\mbox{}
+\newpage
+
+
+\onehalfspace
+%\shorttoc{Índice esquemático}{3}
+\tableofcontents % parece que hay que ejecutar esto para que se actualice el anterior
+
+\newpage
+\mbox{}
+\newpage
+
+\normalsize
+
+\pagestyle{fancy}
+
+\section{Introducción y justificación}
+
+(<>)
+
+\input{../../secciones/contexto}
+
+\subsubsection{Objetivos de etapa}
+
+La Junta de Andalucía recoge en el Anexo II de la Instrucción 13/2022 que los objetivos de etapa son los que recoge la LOMLOE sin modificación. Estos aparecen en el artículo 7 del del Real Decreto 243/2022 del 5 de abril y para esta unidad hemos escogido los siguientes:
+
+\begin{itemize}
+	\item [(<>))] (<>)
+	\item [(<>))] (<>)
+\end{itemize}
+
+(<>)
+
+\subsubsection{Competencias y criterios}
+
+A continuación correlacionamos la competencia específica a trabajar en esta Unidad con sus criterios de evaluación para cada una de nuestras situaciones de aprendizaje. Como vemos, cada competencia específica incluye sus descriptores operativos correspondientes. Sucede de forma análoga con los criterios de evaluación y sus saberes básicos. En este sentido se sigue al pie de la letra la \instr.
+
+	\begin{center}
+		\begin{tblr}{colspec={XX},vspan=even }
+			Competencia específica (descriptores operativos) & Criterios de evaluación (saberes básicos)\\
+ \hline
+\comdes	& \crisabi	\\
+% CON DOS CRITERIOS
+% \SetCell[r=2]{j}\comdes	& \crisabi	\\
+%  \hline
+% 			& \crisabii	\\
+\end{tblr}
+	\end{center}
+
+Nuestro objetivo a lo largo de esta Unidad será completar la anterior tabla con situaciones de aprendizaje e indicadores de logro para cada criterio de evaluación. Esto sucede en la sección 5.
+
+Tendremos en cuenta, además, que los saberes básicos a los que hacen referencia las anteriores siglas son los siguientes:
+
+\singlespace
+\begin{itemize}
+	\item [(<>))] (<>)
+	\item [(<>))] (<>)
+\end{itemize}
+\onehalfspace
+
+\section{Secuencia didáctica}
+
+\subsection{Temporalización}
+
+(<>) sesiones de 1 hora (martes y viernes a última hora) que tendrán lugar (<>) trimestre (<>)
+
+\subsection{Descripción del producto final}
+
+(<>)
+
+\subsection{Metodología}
+
+\subsubsection{Tipos de actividades}
+
+Utilizar distintos tipos de actividades está a la base de toda buena metodología. Además de permitirnos trabajar las distintas competencias del modo más intuitivo posible, ayudan al alumnado a mantener la concentración y la motivación.
+
+A continuación se listan los tipos de actividades que aparecerán en esta unidad. Se les asignan además tres letras con las que se podrán identificar cuando aparezcan a lo largo del plan de aula.
+
+\begin{center}
+	\begin{tblr}{
+			colspec={X[-1]X[-1]X},
+			cell{2-8}{1} = {cmd=\scshape}
+		}
+		Abreviatura	& Tipo & Descripción \\
+\hline
+		EvI	&Evaluación inicial& Reconcimiento del punto de partida\\
+\hline
+		Cal	&Calentamiento & Disparadores del pensamiento para despertar la curiosidad del alumnado.\\
+\hline
+		Pre	&Dinámica de preparación & Orientaciones de cara a otra actividad.\\
+\hline
+		Gru	&Trabajo cooperativo & Actividades grupales de todo tipo\\
+\hline
+		Rec	&Dínamica de recopilación & Sintetización de otra actividad para destacar lo más importante.\\
+\hline
+		Eje	&Ejercicio individual & Controles, disertaciones y entregas varias.\\
+\hline
+		AEv	&Autoevaluacion & Dirigidas al alumnado y al profesor\\
+\end{tblr}
+\end{center}
+
+\subsubsection{Tecnologías}
+
+(<>)
+
+Además de la infraestructura que proporciona el centro (pantalla, pizarra digital, tabletas...), nuestra Unidad destaca por el uso exclusivo de Software Libre \parencite[]{stallman02}. Desde la redacción de textos como el de nuestro producto final, hasta los materiales de la asignatura, todo el código utilizado se encontrará disponible en línea para su uso, estudio, modificación y reproducción de manera gratuita bajo la licencia GPLv3.
+
+Esto supone una ventaja tanto para el alumnado con altas capacidades que encuentre interesante la programación informática como para el alumnado que no tenga los recursos para comprar software con licencias privativas. Además, el uso de software libre suele ofrecer también una mayor accesibilidad, pues está abierto a su adaptación a las diversas necesidades de cada persona (por no mencionar su ubicuidad en los sistemas informáticos de la Junta de Andalucía).
+
+Los recursos multimedia utilizados durante la asignatura estarán disponibles en la página web de la asignatura bajo la licencia GPLv3.
+
+(<>)
+
+\subsubsection{Interdisciplinariedad}
+
+(<>)
+
+\subsubsection{Incorporación de referencias y peculiaridades de Andalucía}
+
+(<>)
+
+\subsubsection{Diseño Universal del Aprendizaje}
+
+Para atender a las necesidades específicas de nuestro alumnado, atendemos a las directrices del departamento de orientación y planificamos nuestra unidad en consecuencia. El objetivo es integrar a quienes tienen necesidades especiales de atención educativa dentro de las mismas actividades que el resto del grupo con lo que se conoce como \textit{pautas DUA}. En la siguiente sección pretendemos mostrar cómo con un solo diseño se puede atender a quienes necesitan desafíos más estimulantes y a quienes presentan dificultades con el idioma por igual.
+
+\subsection{Desarrollo de las sesiones}
+
+El nombre de todas las actividades va precedido por la abreviatura de su tipo.
+
+\subsubsection{Primera sesión}
+
+\paragraph*{Actividades} (<>)
+
+\subparagraph{\textsc{EvI}: Evaluación inicial} (<>). Duración: (<>) minutos.
+
+\subparagraph{\textsc{(<>)}: (<>)} (<>). Duración: (<>) minutos.
+
+\subparagraph{\textsc{(<>)}: (<>)} (<>). Duración: (<>) minutos.
+
+\subparagraph{\textsc{(<>)}: (<>)} (<>). Duración: (<>) minutos.
+
+\paragraph{Atención a la diversidad} (<>)
+
+\subsubsection{Segunda sesión}
+
+\paragraph*{Actividades} (<>)
+
+\subparagraph{\textsc{(<>)}: (<>)} (<>). Duración: (<>) minutos.
+
+\subparagraph{\textsc{(<>)}: (<>)} (<>). Duración: (<>) minutos.
+
+\subparagraph{\textsc{(<>)}: (<>)} (<>). Duración: (<>) minutos.
+
+\paragraph{Atención a la diversidad} (<>)
+
+\subsubsection{Tercera sesión}
+
+\paragraph*{Actividades} (<>)
+
+\subparagraph{\textsc{(<>)}: (<>)} (<>). Duración: (<>) minutos.
+
+\subparagraph{\textsc{(<>)}: (<>)} (<>). Duración: (<>) minutos.
+
+\subparagraph{\textsc{(<>)}: (<>)} (<>). Duración: (<>) minutos.
+
+\paragraph{Atención a la diversidad} (<>)
+
+\subsubsection{Cuarta sesión}
+
+\paragraph*{Actividades} (<>)
+
+\subparagraph{\textsc{(<>)}: (<>)} (<>). Duración: (<>) minutos.
+
+\subparagraph{\textsc{(<>)}: (<>)} (<>). Duración: (<>) minutos.
+
+\subparagraph{\textsc{(<>)}: (<>)} (<>). Duración: (<>) minutos.
+
+\paragraph{Atención a la diversidad} (<>)
+
+\subsubsection{Quinta sesión}
+
+\paragraph*{Actividades} (<>)
+
+\subparagraph{\textsc{(<>)}: (<>)} (<>). Duración: (<>) minutos.
+
+\subparagraph{\textsc{(<>)}: (<>)} (<>). Duración: (<>) minutos.
+
+\subparagraph{\textsc{(<>)}: (<>)} (<>). Duración: (<>) minutos.
+
+\paragraph{Atención a la diversidad} (<>)
+
+\subsubsection{Sexta sesión}
+
+\paragraph*{Actividades} (<>)
+
+\subparagraph{\textsc{(<>)}: (<>)} (<>). Duración: (<>) minutos.
+
+\subparagraph{\textsc{(<>)}: (<>)} (<>). Duración: (<>) minutos.
+
+\subparagraph{\textsc{(<>)}: (<>)} (<>). Duración: (<>) minutos.
+
+\subparagraph{\textsc{AEv}: Autoevaluación} Se comprueba la calidad del proceso de enseñanza-aprendizaje. (<>)Duración: (<>) minutos.
+
+\paragraph{Atención a la diversidad} (<>)
+
+\section{Evaluación}
+
+\subsection{Instrumentos}
+
+Nos serviremos de las siguientes rúbricas con el propósito de conseguir una mayor objetividad a la hora de obtener la puntuación de cada una de las actividades realizadas por el alumnado.
+%justificación del método de evaluación si es relevante
+
+\subsubsection{(<>)}
+
+\input{../../rubricas/(<>)}
+
+\subsection{Aplicación}
+
+Los indicadores de cada rúbrica se utilizarán de forma orientativa, pues no suelen corresponderse de forma unívoca con el rendimiento del alumnado.
+
+\subsubsection{Evaluación continua}
+
+Los instrumentos de evaluación presentados se utilizarán para evaluar las siguientes actividades con el peso indicado. Estamos designando a las actividades utilizando el número de la sesión en que aparecen y las tres letras de su tipo. Si en una sesión hay más de una actividad del mismo tipo, se añadirá otro número al final de la secuencia para indicar a cuál nos referimos (\textit{e.g.:} {\scshape 4Rec1, 4Rec2, 4Rec3...}).
+
+\begin{center}
+	\begin{tblr}{XXX[-1]}
+Instrumento de evaluación	& Actividades evaluadas & Peso\\
+\hline
+			(<>)	& \textsc{(<>)} & (<>)\%\\
+\hline
+			(<>)	& \textsc{(<>)} & (<>)\%\\
+\hline
+			(<>)	& \textsc{(<>)} & (<>)\%\\
+\end{tblr}
+	\end{center}
+
+\subsubsection{Plan de recuperación}
+
+(<>)
+
+El alumnado tendrá la oportunidad de adelantar este trabajo en sesiones reservadas a tareas personalizadas (recuperación, ampliación, repaso).
+
+\subsubsection{Autoevaluación}
+
+Como hemos indicado, las actividades de autoevaluación ({\scshape AEv}) comprueban tanto la adquisición de comptetencias por parte del alumnado como la efectividad de los métodos y actividades diseñadas por el profesorado. El objetivo de este procedimiento es conseguir una retroalimentación positiva que permita seguir mejorando nuestra programación, adaptándola en cada momento a las necesidades e intereses de la clase sin olvidar el currículo que establece la legislación.
+
+En este sentido, hemos considerado que el mejor método para recopilar la información necesaria es combinar la siguente rúrbica para conseguir respuestas numéricas y cuantificables con preguntas abiertas a responder por el otro lado del folio (propuestas de mejora, crítica constructivas...). Evidentemente, se velará por el anonimato para conseguir resultados más fiables.
+
+\input{../../rubricas/aev}
+
+\section{Conclusión y mapa curricular}
+
+Nuestra Unidad Didáctica queda sintetizada con la siguiente tabla, que nos guía desde la competencia específica de partida al final del proceso de evaluación, pasando por sus criterios de evaluación sus indicadores de logro asociados.
+
+\begin{center}
+	\begin{tblr}{colspec={XXX[-1,c]X[-1,c]}, rowspec={Q[m]Q[m]Q[m]Q[m]},vspan=even }
+Competencia específica (descriptores operativos)& Criterios de evaluación (saberes básicos) & Indicadores de logro (situaciones de aprendizaje) & Peso \\
+ \hline
+	\SetCell[r=2]{j}\comdes	& \SetCell[r=2]{j}\crisabi			& \textsc{(<>) ((<>))}				& (<>)\% \\
+ \hline
+				& 						& \textsc{(<>) ((<>))} 				& (<>)\% \\
+%CON DOS CRITERIOS
+ % \hline
+% \SetCell[r=3]{j}\comdes	& \crisabi			& \textsc{(<>) ((<>))}	& (<>)\% \\
+% \hline
+			% 	& \SetCell[r=2]{j}\crisabii	& \textsc{(<>) ((<>))}	& (<>)\% \\
+% \hline
+			% 	&  				& \textsc{(<>) ((<>))}	& (<>)\% \\
+\end{tblr}
+	\end{center}
+
+\newpage
+
+\printbibliography[title={Bibliografía}]
+\addcontentsline{toc}{section}{Bibliografía}%Including it as a chapter
+
+\cleardoublepage
+
+\begin{appendices}
+\renewcommand{\thesection}{\Roman{section}}
+\titleformat*{\section}{\Large\scshape\bfseries}
+	(<>)
+\end{appendices}
+
+
+\end{document}

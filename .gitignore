@@ -32,6 +32,7 @@
 !.gnupg/private-keys-v1.d/
 !.gnupg/private-keys-v1.d/readme.md
 !.local
+!.local/cache/
 !.local/bin/
 !.local/bin/*
 !.local/bin/cron/*

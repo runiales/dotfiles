@@ -11,7 +11,7 @@ src	$HOME/.local/src
 vv	${XDG_VIDEOS_DIR:-$HOME/Vídeos}
 mn	/mnt
 dd	/mnt/Disco
-lp	/mnt/Lapiz
+lp	/media/usb/pen
 B	${XDG_DOCUMENTS_DIR:-$HOME/Documentos}/Biblioteca
 bf	${XDG_DOCUMENTS_DIR:-$HOME/Documentos}/Biblioteca/Filosofía
 lat	${XDG_DOCUMENTS_DIR:-$HOME/Documentos}/Biblioteca/Lantiguas/latín

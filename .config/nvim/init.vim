@@ -19,6 +19,8 @@ Plug 'ellisonleao/gruvbox.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 call plug#end()
 
 set title
@@ -320,11 +322,11 @@ set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
 
-augroup remember_folds
-	autocmd!
-	autocmd BufWinLeave * mkview
-	autocmd BufWinEnter * silent! loadview
-augroup END
+" augroup remember_folds
+" 	autocmd!
+" 	autocmd BufWinLeave * mkview
+" 	autocmd BufWinEnter * silent! loadview
+" augroup END
 
 
 inoremap <F5> <C-R>=strftime("%T")<CR>

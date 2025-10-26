@@ -23,9 +23,7 @@ gab	${XDG_DOCUMENTS_DIR:-$HOME/Documentos}/Trabajo/Transcripción
 pg	${XDG_DATA_HOME:-$HOME/.local/share}/pg
 jg	$HOME/.local/share/juegos
 cig 	${XDG_DOCUMENTS_DIR:-$HOME/Documentos}/Trabajo/cig
-Fp	/home/runiales/Documentos/Estudios/informatica/1/fp
-Fm	/home/runiales/Documentos/Estudios/informatica/1/fm
-Ue	/home/runiales/Documentos/Estudios/informatica/1/eyp
-Ua	/home/runiales/Documentos/Estudios/informatica/1/agl
-Po	/home/runiales/Documentos/Estudios/informatica/1/poo
+Up	/home/runiales/Documentos/Estudios/informatica/fp
+Uo	/home/runiales/Documentos/Estudios/informatica/poo
+Ur	/home/runiales/Documentos/Estudios/informatica/redes
 cmm	/home/runiales/.local/share/wineprefixes/default/drive_c/instalacion_cmasmenos

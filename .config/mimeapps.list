@@ -2,7 +2,7 @@
 text/x-shellscript=text.desktop;
 x-scheme-handler/magnet=torrent.desktop;
 application/x-bittorrent=torrent.desktop;
-x-scheme-handler/mailto=mail.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-YLUTC3.desktop
 text/plain=text.desktop;
 application/postscript=pdf.desktop;
 application/pdf=pdf.desktop;
@@ -29,6 +29,12 @@ x-scheme-handler/discord-610508934456934412=discord-610508934456934412.desktop
 x-scheme-handler/msteams=teams.desktop
 x-scheme-handler/steam=steam.desktop;
 x-scheme-handler/tonsite=org.telegram.desktop.desktop
+message/rfc822=userapp-Thunderbird-YLUTC3.desktop
+x-scheme-handler/mid=userapp-Thunderbird-YLUTC3.desktop
+x-scheme-handler/webcal=userapp-Thunderbird-9MBTC3.desktop
+text/calendar=userapp-Thunderbird-9MBTC3.desktop
+application/x-extension-ics=userapp-Thunderbird-9MBTC3.desktop
+x-scheme-handler/webcals=userapp-Thunderbird-9MBTC3.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
@@ -44,3 +50,7 @@ application/x-extension-xhtml=firefox.desktop;
 application/x-extension-xht=firefox.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-Y662X0.desktop;userapp-Telegram Desktop-IVXCS1.desktop;userapp-Telegram Desktop-AOI6V1.desktop;org.telegram.desktop.desktop;
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-YLUTC3.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-YLUTC3.desktop;
+x-scheme-handler/webcal=userapp-Thunderbird-9MBTC3.desktop;
+x-scheme-handler/webcals=userapp-Thunderbird-9MBTC3.desktop;

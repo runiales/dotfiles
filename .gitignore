@@ -28,6 +28,7 @@
 !.config/pinentry/preexec
 !.config/fcitx5/
 !.config/fcitx5/profile
+!.config/fcitx5/config
 !.gnupg/
 !.gnupg/private-keys-v1.d/
 !.gnupg/private-keys-v1.d/readme.md

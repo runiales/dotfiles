@@ -40,9 +40,9 @@ alias \
 alias \
 	magit="nvim -c MagitOnly" \
 	tlmgr="/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode" \
-	vw="nvim $HOME/Documentos/vimwiki/index.md" \
-	dia="nvim $HOME/Documentos/vimwiki/diary/$(date "+%Y-%m-%d" | sed -e "s/$/.md/")" \
-	plan="nvim $HOME/Documentos/vimwiki/diary/$(date -d tomorrow "+%Y-%m-%d" | sed -e "s/$/.md/")" \
+	vw="nvim $HOME/documentos/vimwiki/index.md" \
+	dia="nvim $HOME/documentos/vimwiki/diary/$(date "+%Y-%m-%d" | sed -e "s/$/.md/")" \
+	plan="nvim $HOME/documentos/vimwiki/diary/$(date -d tomorrow "+%Y-%m-%d" | sed -e "s/$/.md/")" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/zshnameddirrc" \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
 	tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf" \

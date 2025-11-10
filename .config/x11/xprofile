@@ -5,7 +5,7 @@
 
 mpd &			# music player daemon-you might prefer it as a service though
 remaps &		# run the remaps script, switching caps/esc and more; check it for more info
-setbg ~/Imágenes/fondos &			# set the background with the `setbg` script
+setbg ~/imagenes/fondos &			# set the background with the `setbg` script
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	# Uncomment to use Xresources colors/settings on startup
 xcompmgr &		# xcompmgr for transparency
 dunst &			# dunst for notifications

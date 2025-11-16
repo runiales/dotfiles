@@ -65,10 +65,7 @@ alias \
 	zo='d && z "$(fzf)"'\
 	T='nvim "$(find /home/runiales/Documentos/Trabajo/Oposiciones/temas | grep tex | fzf)"'\
 	pds='lowriter /home/runiales/Documentos/Trabajo/Oposiciones/2023/sandra/PROGRAMACIÓN.odt'\
+	hsk='okular ${XDG_DOCUMENTS_DIR:-$HOME/Documentos}/estudios/chino/hsk.pdf'
 	# pd='nvim /home/runiales/Documentos/Trabajo/Oposiciones/pd/ays.tex'\
-	ud='cd /home/runiales/Documentos/Trabajo/Oposiciones/pd && nvim "$(find ud | grep tex | fzf)"'\
-	llat='zathura ${XDG_DOCUMENTS_DIR:-$HOME/Documentos}/Biblioteca/Lantiguas/latín/lingualat.pdf'\
-	sandra='remind -cl -b1 -m -@ .config/tareas/horarioSan.rem'\
-	sube='subdl -i --lang=spa'\
-	tlp='timelineproject'\
-	horario='zathura ${XDG_DOCUMENTS_DIR:-$HOME/Documentos}/Trabajo/cig/horario\ bajas.pdf'
+	# sube='subdl -i --lang=spa'\
+	# tlp='timelineproject'\

@@ -158,8 +158,8 @@ map P copiaplantillas
 map Se $subdl -i --lang=spa $f
 map Sf $subdl -i --lang=fre $f
 
-map Bb $lf -remote "send $id cd '$(find /home/runiales/Documentos/Biblioteca -type d | fzf)'"
-map Bl $zathura $(find /home/runiales/Documentos/Biblioteca -type f | fzf)
+map Bb $lf -remote "send $id cd '$(find /home/runiales/documentos/biblioteca -type d | fzf)'"
+map Bl $zathura $(find /home/runiales/documentos/biblioteca -type f | fzf)
 map Bm movetobib
 
 # Source Bookmarks

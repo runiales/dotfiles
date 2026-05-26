@@ -148,6 +148,7 @@ map b $setbg $f
 map <c-e> down
 map <c-y> up
 map V push :!nvim<space>
+map t push $touch<space>
 
 map W $setsid -f $TERMINAL >/dev/null 2>&1
 

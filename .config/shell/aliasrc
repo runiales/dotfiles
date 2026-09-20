@@ -65,7 +65,7 @@ alias \
 	zo='d && z "$(fzf)"'\
 	T='nvim "$(find /home/runiales/Documentos/Trabajo/Oposiciones/temas | grep tex | fzf)"'\
 	pds='lowriter /home/runiales/Documentos/Trabajo/Oposiciones/2023/sandra/PROGRAMACIÓN.odt'\
-	hsk='okular ${XDG_DOCUMENTS_DIR:-$HOME/Documentos}/estudios/chino/hsk.pdf'
-	# pd='nvim /home/runiales/Documentos/Trabajo/Oposiciones/pd/ays.tex'\
+	hsk='okular ${XDG_DOCUMENTS_DIR:-$HOME/Documentos}/estudios/chino/hsk.pdf'\
+	nrd='sudo nixos-rebuild switch --flake /home/runiales/.config/nixos/.#desktop'
 	# sube='subdl -i --lang=spa'\
 	# tlp='timelineproject'\

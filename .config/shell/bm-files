@@ -20,8 +20,8 @@ cfl	${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc		# lf (file browser) config
 cfL	${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope		# lf's scope/preview file
 cfX	${XDG_CONFIG_HOME:-$HOME/.config}/sxiv/exec/key-handler	# sxiv (image viewer) key/script handler
 cfd	~/.local/src/dwm/config.h
-cfn	~/.config/nixos/configuration.nix
 cft	${XDG_CONFIG_HOME:-$HOME/.config}/tareas/.taskrc
+Nd	~/.config/nixos/hosts/desktop/configuration.nix
 
 Ll	$XDG_DOCUMENTS_DIR/Plantillas/latex/lógica.tex
 Lp	$XDG_DOCUMENTS_DIR/Plantillas/latex/práctica.tex
